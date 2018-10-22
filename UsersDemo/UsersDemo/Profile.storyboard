@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3i-BL-S7E">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="cRs-b1-8EZ">
+            <objects>
+                <navigationController id="g3i-BL-S7E" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AgR-yp-2nc">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yLD-pO-d5L" kind="relationship" relationship="rootViewController" id="otT-j9-xGm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9w8-tn-QdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="-50"/>
+        </scene>
+        <!--Edit user profile-->
+        <scene sceneID="QUV-qK-SfA">
+            <objects>
+                <viewController id="yLD-pO-d5L" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mJW-hv-Bj2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sHd-Uy-KLf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit user profile" id="IA0-oi-anW">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_back" id="Xwt-hr-QVt">
+                            <connections>
+                                <segue destination="VSH-TU-LwK" kind="popoverPresentation" popoverAnchorBarButtonItem="Xwt-hr-QVt" id="Ggz-ky-Xeq">
+                                    <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
+                                    <popoverPassthroughViews>
+                                        <view reference="mJW-hv-Bj2"/>
+                                    </popoverPassthroughViews>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="y83-kH-W2H"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y0F-QX-ZFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="758" y="-51"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="EO5-pL-2bD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="VSH-TU-LwK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQw-bd-Pu2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1346" y="-51"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_back" width="22.5" height="22.5"/>
+    </resources>
+</document>
