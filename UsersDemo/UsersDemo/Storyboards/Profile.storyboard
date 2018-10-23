@@ -35,18 +35,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sHd-Uy-KLf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit user profile" id="IA0-oi-anW">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_back" id="Xwt-hr-QVt">
+                    <navigationItem key="navigationItem" title="Edit user profile" leftItemsSupplementBackButton="YES" id="IA0-oi-anW">
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="icon_back" id="6ef-fm-UO1">
                             <connections>
-                                <segue destination="VSH-TU-LwK" kind="popoverPresentation" popoverAnchorBarButtonItem="Xwt-hr-QVt" id="Ggz-ky-Xeq">
-                                    <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
-                                    <popoverPassthroughViews>
-                                        <view reference="mJW-hv-Bj2"/>
-                                    </popoverPassthroughViews>
-                                </segue>
+                                <segue destination="VSH-TU-LwK" kind="show" id="CAp-8E-tVk"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="y83-kH-W2H"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="y83-kH-W2H"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0F-QX-ZFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
