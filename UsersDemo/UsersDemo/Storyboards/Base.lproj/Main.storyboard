@@ -12,10 +12,11 @@
         <scene sceneID="j2J-ii-jl7">
             <objects>
                 <navigationController id="AzN-qC-xWt" userLabel="SavedNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GuW-Rt-e1q"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_saved" id="GuW-Rt-e1q"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e4p-CK-dpe">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="YNz-4z-yEc" kind="relationship" relationship="rootViewController" id="HVK-Ch-XXg"/>
@@ -121,10 +122,11 @@
         <scene sceneID="abl-w4-3yn">
             <objects>
                 <navigationController id="ROF-Sd-llt" userLabel="UsersNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oVc-dd-Brs"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_users" id="oVc-dd-Brs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i1O-au-Mfl">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="pwe-wq-6es" kind="relationship" relationship="rootViewController" id="pyR-xQ-38A"/>
@@ -149,6 +151,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ROF-Sd-llt" kind="relationship" relationship="viewControllers" id="y3z-jO-MV7"/>
@@ -160,4 +163,8 @@
             <point key="canvasLocation" x="-36" y="59"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_saved" width="28" height="26"/>
+        <image name="tab_users" width="34" height="23"/>
+    </resources>
 </document>
