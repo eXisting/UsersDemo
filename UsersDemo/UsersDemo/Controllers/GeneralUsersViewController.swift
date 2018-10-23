@@ -8,12 +8,10 @@
 
 import UIKit
 
-class GeneralUsersViewController: UIViewController {
+class GeneralUsersViewController: UITableViewController {
     
     // MARK: Outlets
-    
-    @IBOutlet weak var tableView: UsersTableView!
-    
+        
     // MARK: Overrides
     
     override func viewDidLoad() {
