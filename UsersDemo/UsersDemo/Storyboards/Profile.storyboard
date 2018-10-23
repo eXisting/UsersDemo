@@ -35,14 +35,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sHd-Uy-KLf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit user profile" leftItemsSupplementBackButton="YES" id="IA0-oi-anW">
-                        <barButtonItem key="leftBarButtonItem" title="Back" image="icon_back" id="6ef-fm-UO1">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Edit user profile" id="IA0-oi-anW">
+                        <barButtonItem key="leftBarButtonItem" title=" Back" image="icon_back" id="ZkL-CI-V1a">
                             <connections>
-                                <segue destination="VSH-TU-LwK" kind="show" id="CAp-8E-tVk"/>
+                                <segue destination="VSH-TU-LwK" kind="showDetail" id="EVP-j0-l9e"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="y83-kH-W2H"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0F-QX-ZFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
