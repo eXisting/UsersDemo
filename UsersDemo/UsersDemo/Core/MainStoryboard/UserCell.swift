@@ -13,27 +13,42 @@ class UserCell : UITableViewCell {
     
     // MARK: Fields
     
-    private var profilePreview: UIImageView?
-    private var phone: String?
-    private var fullName: String?
+    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    
+    //    private var profilePreview: UIImageView?
+//    private var phone: String?
+//    private var fullName: String?
     
     // MARK: Constructors
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        
     }
     
      // MARK: Functions
     
     public func setCellData(profile: UIImageView?, phone: String?, fullName: String?) {
         
-        if validation(profile, phone, fullName) {
-            self.profilePreview = profile!
-            self.phone = phone!
-            self.fullName = fullName!
-        } else {
-            //log("Some of passed fields have not passed validation!")
-        }
+//        if (photo != nil)
+//        {
+//            photo.layer.borderWidth = 1
+//            photo.layer.masksToBounds = false
+//            photo.layer.borderColor = UIColor.black.cgColor
+//            photo.layer.cornerRadius = photo.frame.height/2
+//            photo.clipsToBounds = true
+//        }
+        
+//        if validation(profile, phone, fullName) {
+//            self.profilePreview = profile!
+//            self.phone = phone!
+//            self.fullName = fullName!
+//        } else {
+//            //log("Some of passed fields have not passed validation!")
+//        }
         
     }
     

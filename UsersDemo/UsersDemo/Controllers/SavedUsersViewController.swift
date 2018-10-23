@@ -11,7 +11,7 @@ import UIKit
 class SavedUsersViewController: UITableViewController {
     
     // MARK: Outlets
-        
+    
     // MARK: Overrides
     
     override func viewDidLoad() {
