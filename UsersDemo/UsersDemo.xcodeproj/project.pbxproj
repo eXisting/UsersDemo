@@ -16,6 +16,7 @@
 		A1343B71217F9EAA00170C0B /* GeneralUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B70217F9EAA00170C0B /* GeneralUsersViewController.swift */; };
 		A1343B73217F9EF400170C0B /* SavedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B72217F9EF400170C0B /* SavedUsersViewController.swift */; };
 		A1343B75217FA2E200170C0B /* UsersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B74217FA2E200170C0B /* UsersTableView.swift */; };
+		A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B792180E15000170C0B /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A1343B70217F9EAA00170C0B /* GeneralUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUsersViewController.swift; sourceTree = "<group>"; };
 		A1343B72217F9EF400170C0B /* SavedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewController.swift; sourceTree = "<group>"; };
 		A1343B74217FA2E200170C0B /* UsersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableView.swift; sourceTree = "<group>"; };
+		A1343B792180E15000170C0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				A1343B70217F9EAA00170C0B /* GeneralUsersViewController.swift */,
 				A1343B72217F9EF400170C0B /* SavedUsersViewController.swift */,
+				A1343B792180E15000170C0B /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */,
 				A1343B75217FA2E200170C0B /* UsersTableView.swift in Sources */,
 				A1343B6C217F901C00170C0B /* UserCell.swift in Sources */,
 				A1343B73217F9EF400170C0B /* SavedUsersViewController.swift in Sources */,

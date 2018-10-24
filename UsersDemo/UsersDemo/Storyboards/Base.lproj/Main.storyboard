@@ -85,6 +85,7 @@
                                             <outlet property="fullName" destination="L43-ol-dn8" id="LlS-fE-Pxt"/>
                                             <outlet property="phone" destination="KZ8-c5-H7S" id="Uji-l4-f2P"/>
                                             <outlet property="photo" destination="FzA-Ed-CcS" id="qJK-pk-60W"/>
+                                            <segue destination="4Nl-Ij-DM7" kind="show" id="wJG-ze-6f4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X9D-9m-HsJ">

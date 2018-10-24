@@ -28,27 +28,85 @@
         <!--Edit user profile-->
         <scene sceneID="QUV-qK-SfA">
             <objects>
-                <viewController id="yLD-pO-d5L" sceneMemberID="viewController">
+                <viewController id="yLD-pO-d5L" customClass="ProfileViewController" customModule="UsersDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mJW-hv-Bj2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_users_active" translatesAutoresizingMaskIntoConstraints="NO" id="Xnf-wL-YJt" userLabel="Profile Image">
+                                <rect key="frame" x="112.5" y="114" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="XOi-Qg-jUd"/>
+                                    <constraint firstAttribute="height" constant="150" id="wjr-WX-O88"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NSl-6W-7Rq">
+                                <rect key="frame" x="0.0" y="314" width="375" height="229"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTc-Gl-XMV" userLabel="Name Text Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4um-0J-lSt" userLabel="Surname Text Field">
+                                        <rect key="frame" x="0.0" y="58.5" width="375" height="53.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AqC-GJ-eWh" userLabel="Email Text Field">
+                                        <rect key="frame" x="0.0" y="117" width="375" height="53.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tco-2j-zCC" userLabel="Phone Text Field">
+                                        <rect key="frame" x="0.0" y="175.5" width="375" height="53.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sHd-Uy-KLf" firstAttribute="bottom" secondItem="NSl-6W-7Rq" secondAttribute="bottom" constant="80" id="26z-rQ-dmi"/>
+                            <constraint firstItem="Xnf-wL-YJt" firstAttribute="centerX" secondItem="mJW-hv-Bj2" secondAttribute="centerX" id="6Yq-DT-qus"/>
+                            <constraint firstItem="NSl-6W-7Rq" firstAttribute="leading" secondItem="sHd-Uy-KLf" secondAttribute="leading" id="HCe-5H-2vP"/>
+                            <constraint firstItem="NSl-6W-7Rq" firstAttribute="top" secondItem="Xnf-wL-YJt" secondAttribute="bottom" constant="50" id="d64-i9-rG2"/>
+                            <constraint firstItem="sHd-Uy-KLf" firstAttribute="trailing" secondItem="NSl-6W-7Rq" secondAttribute="trailing" id="geQ-aw-Mq1"/>
+                            <constraint firstItem="Xnf-wL-YJt" firstAttribute="top" secondItem="sHd-Uy-KLf" secondAttribute="top" constant="50" id="x8z-oq-tAT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sHd-Uy-KLf"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit user profile" id="IA0-oi-anW">
                         <barButtonItem key="leftBarButtonItem" title=" Back" image="icon_back" id="ZkL-CI-V1a">
                             <connections>
+                                <action selector="onBackClick:" destination="yLD-pO-d5L" id="fgf-hg-X4x"/>
                                 <segue destination="VSH-TU-LwK" kind="showDetail" id="EVP-j0-l9e"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="y83-kH-W2H"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="y83-kH-W2H">
+                            <connections>
+                                <action selector="onSaveClick:" destination="yLD-pO-d5L" id="AsR-Id-qZN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="emailField" destination="AqC-GJ-eWh" id="juH-ft-9iS"/>
+                        <outlet property="nameField" destination="MTc-Gl-XMV" id="YQc-QO-25N"/>
+                        <outlet property="phoneField" destination="tco-2j-zCC" id="gJo-4Y-TNk"/>
+                        <outlet property="profileImage" destination="Xnf-wL-YJt" id="Hqk-1N-jDN"/>
+                        <outlet property="surnameField" destination="4um-0J-lSt" id="K7b-Jd-KfS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0F-QX-ZFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="-51"/>
+            <point key="canvasLocation" x="757.60000000000002" y="-51.724137931034484"/>
         </scene>
         <!--Main-->
         <scene sceneID="EO5-pL-2bD">
@@ -61,5 +119,6 @@
     </scenes>
     <resources>
         <image name="icon_back" width="22.5" height="22.5"/>
+        <image name="tab_users_active" width="34" height="23"/>
     </resources>
 </document>
