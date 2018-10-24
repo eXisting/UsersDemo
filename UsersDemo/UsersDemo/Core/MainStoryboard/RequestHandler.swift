@@ -14,6 +14,9 @@ class RequestHandler {
     private let countPerRequest = "25"
     private let formatRequired = "json"
     
+    // mock
+    private init() {}
+    
     private func createRequest() {
         var url = endPoint
         url.append("/?results=")
@@ -31,4 +34,6 @@ class RequestHandler {
         return []
     }
 
+    
 }
+

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum UserValidateionError : Error {
+enum UserValidationError : Error {
     case NameError
     case SurnameError
     case PhoneError
@@ -16,29 +16,30 @@ enum UserValidateionError : Error {
     case ImageUrlError
 }
 
-struct User {
+class User {
+    
     var name: String
     var surname: String
     var email: String
     var phone: String
     var imageURL: String?
     
-    init(Name: String?, Surname: String?, Email: String?, Phone: String?, ImageURL: String?) throws {
+    required init(Name: String?, Surname: String?, Email: String?, Phone: String?, ImageURL: String?) throws {
         
         guard let p_Name = Name else {
-            throw UserValidateionError.NameError
+            throw UserValidationError.NameError
         }
         
         guard let p_Surname = Surname else {
-            throw UserValidateionError.SurnameError
+            throw UserValidationError.SurnameError
         }
         
         guard let p_Email = Email else {
-            throw UserValidateionError.EmailError
+            throw UserValidationError.EmailError
         }
         
         guard let p_Phone = Email else {
-            throw UserValidateionError.PhoneError
+            throw UserValidationError.PhoneError
         }
         
         self.imageURL = ImageURL
@@ -51,3 +52,4 @@ struct User {
     
     
 }
+
