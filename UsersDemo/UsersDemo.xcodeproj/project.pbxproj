@@ -18,6 +18,7 @@
 		A1343B75217FA2E200170C0B /* UsersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B74217FA2E200170C0B /* UsersTableView.swift */; };
 		A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B792180E15000170C0B /* ProfileViewController.swift */; };
 		A1343B7E2180E52500170C0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B7D2180E52500170C0B /* User.swift */; };
+		A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B7F2180F09B00170C0B /* RequestHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A1343B74217FA2E200170C0B /* UsersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableView.swift; sourceTree = "<group>"; };
 		A1343B792180E15000170C0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A1343B7D2180E52500170C0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A1343B7F2180F09B00170C0B /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				A1343B76217FB12500170C0B /* Protocols */,
 				A1343B6B217F901C00170C0B /* UserCell.swift */,
 				A1343B74217FA2E200170C0B /* UsersTableView.swift */,
+				A1343B7F2180F09B00170C0B /* RequestHandler.swift */,
 			);
 			path = MainStoryboard;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				A1343B73217F9EF400170C0B /* SavedUsersViewController.swift in Sources */,
 				A1343B71217F9EAA00170C0B /* GeneralUsersViewController.swift in Sources */,
 				A119849E217E2B4500249D6B /* AppDelegate.swift in Sources */,
+				A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */,
 				A1343B7E2180E52500170C0B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

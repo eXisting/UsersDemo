@@ -78,6 +78,7 @@
                                                         <action selector="onDetailedClick:" destination="S03-Lj-r07" eventType="touchUpInside" id="88q-ek-OFx"/>
                                                         <action selector="onDetailedClick:" destination="uYT-IA-JIy" eventType="touchUpInside" id="Uag-fX-x7D"/>
                                                         <action selector="onDetailedClick:" destination="iGp-qU-Jdf" eventType="touchUpInside" id="V5E-u4-SkC"/>
+                                                        <segue destination="4Nl-Ij-DM7" kind="showDetail" id="eec-In-bWv"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -100,7 +101,6 @@
                                             <outlet property="fullName" destination="L43-ol-dn8" id="LlS-fE-Pxt"/>
                                             <outlet property="phone" destination="KZ8-c5-H7S" id="Uji-l4-f2P"/>
                                             <outlet property="photo" destination="FzA-Ed-CcS" id="qJK-pk-60W"/>
-                                            <segue destination="4Nl-Ij-DM7" kind="show" id="wJG-ze-6f4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X9D-9m-HsJ">
@@ -184,6 +184,7 @@
                                                     <connections>
                                                         <action selector="onDetailedClick:" destination="iGp-qU-Jdf" eventType="touchUpInside" id="XR7-q4-jDR"/>
                                                         <action selector="onDetailedClick:" destination="S03-Lj-r07" eventType="touchUpInside" id="zr4-e9-SPc"/>
+                                                        <segue destination="4Nl-Ij-DM7" kind="showDetail" id="Vx8-f0-cOj"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -262,7 +263,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" id="4Nl-Ij-DM7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TaG-Bd-Zwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2217" y="-326"/>
+            <point key="canvasLocation" x="2362" y="-16"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -288,4 +289,7 @@
         <image name="tab_saved" width="28" height="26"/>
         <image name="tab_users" width="34" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Vx8-f0-cOj"/>
+    </inferredMetricsTieBreakers>
 </document>
