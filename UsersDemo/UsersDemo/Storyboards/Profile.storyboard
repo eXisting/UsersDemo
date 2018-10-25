@@ -34,50 +34,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_users_active" translatesAutoresizingMaskIntoConstraints="NO" id="Xnf-wL-YJt" userLabel="Profile Image">
-                                <rect key="frame" x="112.5" y="114" width="150" height="150"/>
+                                <rect key="frame" x="137.5" y="104" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="XOi-Qg-jUd"/>
-                                    <constraint firstAttribute="height" constant="150" id="wjr-WX-O88"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="HqD-Y9-Eaj"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Tur-g7-dMG"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NSl-6W-7Rq">
-                                <rect key="frame" x="0.0" y="314" width="375" height="229"/>
+                                <rect key="frame" x="0.0" y="292" width="375" height="135"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTc-Gl-XMV" userLabel="Name Text Field">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTc-Gl-XMV" userLabel="Name Text Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4um-0J-lSt" userLabel="Surname Text Field">
-                                        <rect key="frame" x="0.0" y="58.5" width="375" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="35" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AqC-GJ-eWh" userLabel="Email Text Field">
-                                        <rect key="frame" x="0.0" y="117" width="375" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="70" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tco-2j-zCC" userLabel="Phone Text Field">
-                                        <rect key="frame" x="0.0" y="175.5" width="375" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="105" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkH-ls-idC">
+                                <rect key="frame" x="139" y="212" width="97" height="30"/>
+                                <state key="normal" title="Change photo"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sHd-Uy-KLf" firstAttribute="bottom" secondItem="NSl-6W-7Rq" secondAttribute="bottom" constant="80" id="26z-rQ-dmi"/>
-                            <constraint firstItem="Xnf-wL-YJt" firstAttribute="centerX" secondItem="mJW-hv-Bj2" secondAttribute="centerX" id="6Yq-DT-qus"/>
-                            <constraint firstItem="NSl-6W-7Rq" firstAttribute="leading" secondItem="sHd-Uy-KLf" secondAttribute="leading" id="HCe-5H-2vP"/>
-                            <constraint firstItem="NSl-6W-7Rq" firstAttribute="top" secondItem="Xnf-wL-YJt" secondAttribute="bottom" constant="50" id="d64-i9-rG2"/>
-                            <constraint firstItem="sHd-Uy-KLf" firstAttribute="trailing" secondItem="NSl-6W-7Rq" secondAttribute="trailing" id="geQ-aw-Mq1"/>
-                            <constraint firstItem="Xnf-wL-YJt" firstAttribute="top" secondItem="sHd-Uy-KLf" secondAttribute="top" constant="50" id="x8z-oq-tAT"/>
+                            <constraint firstItem="WkH-ls-idC" firstAttribute="centerX" secondItem="mJW-hv-Bj2" secondAttribute="centerX" id="6Tu-MT-w4o"/>
+                            <constraint firstItem="WkH-ls-idC" firstAttribute="top" secondItem="Xnf-wL-YJt" secondAttribute="bottom" constant="8" id="GOI-p3-ful"/>
+                            <constraint firstItem="NSl-6W-7Rq" firstAttribute="top" secondItem="WkH-ls-idC" secondAttribute="bottom" constant="50" id="Irx-px-zLj"/>
+                            <constraint firstItem="Xnf-wL-YJt" firstAttribute="top" secondItem="sHd-Uy-KLf" secondAttribute="top" constant="40" id="Kk0-55-3rT"/>
+                            <constraint firstItem="NSl-6W-7Rq" firstAttribute="centerX" secondItem="mJW-hv-Bj2" secondAttribute="centerX" id="TbO-qp-WsV"/>
+                            <constraint firstItem="sHd-Uy-KLf" firstAttribute="trailing" secondItem="NSl-6W-7Rq" secondAttribute="trailing" id="mbC-Wi-Kyl"/>
+                            <constraint firstItem="NSl-6W-7Rq" firstAttribute="leading" secondItem="sHd-Uy-KLf" secondAttribute="leading" id="qCq-ts-7Oc"/>
+                            <constraint firstItem="sHd-Uy-KLf" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NSl-6W-7Rq" secondAttribute="bottom" id="uC2-oX-EEO"/>
+                            <constraint firstItem="Xnf-wL-YJt" firstAttribute="centerX" secondItem="mJW-hv-Bj2" secondAttribute="centerX" id="zfb-mq-ZNZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sHd-Uy-KLf"/>
                     </view>
