@@ -21,14 +21,53 @@ class RequestHandler {
     fileprivate static let countPerRequest = "15"
     fileprivate static let formatRequired = "json"
     
-    // mock
+    // Prevent from creation
     private init() {}
     
+    // MARK: API High-level implementation
+    
+    class func loadUsers(_ completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
+        getUsersAtPath(RequestHandler.buildEndPointUrl(), completionHandler: completionHandler)
+    }
+    
+    class func loadMore(_ wrapper: UsersWrapper?, completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
+        
+        guard let nextURL = wrapper?.next else {
+            let error = RequestError.SerializationError(reason: "Cannot get next url for request")
+            completionHandler(.failure(error))
+            return
+        }
+        
+        getUsersAtPath(nextURL, completionHandler: completionHandler)
+        
+    }
+    
+    class func loadImageAsyncBy(url: String, _ completionHandler: @escaping (Result<UIImage>) -> Void) {
+        
+        Alamofire.request(url)
+            .response { response in
+                guard let imageData = response.data else {
+                    completionHandler(.failure(RequestError.EndPointError(reason:
+                        "Could not get image from image URL returned in search results")))
+                    return
+                }
+                
+                guard let result = UIImage(data: imageData) else {
+                    completionHandler(.failure(RequestError.EndPointError(reason:
+                        "Could not get image from image URL returned in search results")))
+                    return
+                }
+                
+                completionHandler(.success(result))
+            }
+        
+    }
+    
+    // MARK: Class implementation
+    
     private class func getUsersFromResponse(_ response: DataResponse<Any>) -> Result<UsersWrapper> {
-       
+        
         guard response.result.error == nil else {
-            // got an error in getting the data, need to handle it
-            print(response.result.error!)
             return .failure(response.result.error!)
         }
         
@@ -38,27 +77,38 @@ class RequestHandler {
                 "Didn't get dictionary in response"))
         }
         
-        let wrapper = UsersWrapper()
         let responseInfo = json["info"] as? [String:Any]
-        
-        // remember response data into wrapper
-        wrapper.count = responseInfo!["results"] as? Int
-        wrapper.next = RequestHandler.buildEndPointUrl()
+        let responseCount = responseInfo!["results"] as? Int
         
         var data: [User] = []
         if let results = json["results"] as? [[String: Any]] {
             for responseUser in results {
-                data.append(User(json: responseUser))
+                let usr = User(json: responseUser)
+                
+                // Doesn't work
+//                usr.imageWrapper!.startLoadImages { imgRes in
+//                    if imgRes.error == nil {
+//                        guard let img = imgRes.value else {
+//                            print("Cannot fetch images!")
+//                            return
+//                        }
+//
+//                        usr.image = img
+//                    } else {
+//                         print("Something wrong!")
+//                    }
+//                }
+                
+                data.append(usr)
             }
         }
         
-        wrapper.users = data
-        return .success(wrapper)
+        return .success(UsersWrapper(users: data, responseCount, RequestHandler.buildEndPointUrl()))
         
     }
-
     
-    fileprivate class func getUsersAtPath(_ path: String, completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
+    
+    private class func getUsersAtPath(_ path: String, completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
         
         // make sure it's HTTPS
         guard var urlComponents = URLComponents(string: path) else {
@@ -77,7 +127,6 @@ class RequestHandler {
         
         let _ = Alamofire.request(url)
             .responseJSON { response in
-                
                 if let error = response.result.error {
                     completionHandler(.failure(error))
                     return
@@ -89,23 +138,10 @@ class RequestHandler {
         
     }
     
-    class func loadUsers(_ completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
-        getUsersAtPath(RequestHandler.buildEndPointUrl(), completionHandler: completionHandler)
-    }
-    
-    class func loadMore(_ wrapper: UsersWrapper?, completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
-        
-        guard let nextURL = wrapper?.next else {
-            let error = RequestError.SerializationError(reason: "Cannot get next url for request")
-            completionHandler(.failure(error))
-            return
-        }
-        
-        getUsersAtPath(nextURL, completionHandler: completionHandler)
-    }
-    
     private class func buildEndPointUrl() -> String {
+        
         var url = RequestHandler.endPoint
+        
         url.append("/?results=")
         url.append(countPerRequest)
         url.append("&format=")

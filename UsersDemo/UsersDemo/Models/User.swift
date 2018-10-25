@@ -31,11 +31,13 @@ class User {
     var surname: String?
     var email: String?
     var phone: String?
-    var images: [String]?
+    var image: UIImage?
+    
+    var imageWrapper: UserImageWrapper?
     
     required init(json: [String: Any]) {
         
-        guard let nameJson = json[UserFields.Name.rawValue] as? [String: Any] else {
+        guard let nameJson = json[UserFields.Name.rawValue] as? [String:Any] else {
             print("Error during serialization of User instance")
             return
         }
@@ -46,9 +48,12 @@ class User {
         self.phone = json[UserFields.Phone.rawValue] as? String
         self.email = json[UserFields.Email.rawValue] as? String
         
-        // TODO images
+        guard let pictures = json[UserFields.Picture.rawValue] as? [String:Any] else {
+            print("Error during serialization of pictures array")
+            return
+        }
+        
+        self.imageWrapper = UserImageWrapper(json: pictures)
     }
-    
-    
 }
 

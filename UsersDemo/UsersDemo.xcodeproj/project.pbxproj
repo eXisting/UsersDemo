@@ -21,6 +21,7 @@
 		A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B7F2180F09B00170C0B /* RequestHandler.swift */; };
 		A1343B832180FEC300170C0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B822180FEC300170C0B /* User.swift */; };
 		A13B129321822BE4000D2E71 /* UsersWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B129221822BE4000D2E71 /* UsersWrapper.swift */; };
+		A187B26321825EB8009532A9 /* UserImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A187B26221825EB7009532A9 /* UserImageWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A1343B7F2180F09B00170C0B /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		A1343B822180FEC300170C0B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A13B129221822BE4000D2E71 /* UsersWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersWrapper.swift; sourceTree = "<group>"; };
+		A187B26221825EB7009532A9 /* UserImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				A13B129221822BE4000D2E71 /* UsersWrapper.swift */,
+				A187B26221825EB7009532A9 /* UserImageWrapper.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A187B26321825EB8009532A9 /* UserImageWrapper.swift in Sources */,
 				A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */,
 				A1343B75217FA2E200170C0B /* UsersTableView.swift in Sources */,
 				A1343B6C217F901C00170C0B /* UserCell.swift in Sources */,

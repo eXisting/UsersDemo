@@ -6,8 +6,14 @@
 //  Copyright © 2018 Andrey Popazov. All rights reserved.
 //
 
-class UsersWrapper {
+struct UsersWrapper {
     var users: [User]?
     var count: Int?
     var next: String?
+    
+    init(users: [User]?, _ count: Int?, _ next: String?) {
+        self.count = count
+        self.next = next
+        self.users = users
+    }
 }
