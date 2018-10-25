@@ -75,7 +75,6 @@
                                             <state key="normal" image="icon_next"/>
                                             <connections>
                                                 <action selector="onDetailedClick:" destination="uYT-IA-JIy" eventType="touchUpInside" id="AAl-z3-2tz"/>
-                                                <segue destination="4Nl-Ij-DM7" kind="showDetail" id="sbt-a5-B6D"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -98,6 +97,7 @@
                                     <outlet property="fullName" destination="L43-ol-dn8" id="FJy-wM-5LQ"/>
                                     <outlet property="phone" destination="KZ8-c5-H7S" id="eto-r5-93x"/>
                                     <outlet property="photo" destination="FzA-Ed-CcS" id="Fiw-mW-Ick"/>
+                                    <segue destination="4Nl-Ij-DM7" kind="showDetail" id="eGF-R3-zou"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -162,7 +162,6 @@
                                             <state key="normal" image="icon_next"/>
                                             <connections>
                                                 <action selector="onDetailedClick:" destination="S03-Lj-r07" eventType="touchUpInside" id="IlZ-jE-GzZ"/>
-                                                <segue destination="4Nl-Ij-DM7" kind="showDetail" id="kn1-aP-iUH"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -185,6 +184,7 @@
                                     <outlet property="fullName" destination="XTN-LQ-NHu" id="Dhs-bZ-X0W"/>
                                     <outlet property="phone" destination="wE8-bL-XH2" id="9t2-8F-oID"/>
                                     <outlet property="photo" destination="p4s-b6-i9E" id="YtG-zi-qw9"/>
+                                    <segue destination="4Nl-Ij-DM7" kind="showDetail" id="RH9-h5-IiV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -251,6 +251,6 @@
         <image name="tab_users" width="34" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sbt-a5-B6D"/>
+        <segue reference="RH9-h5-IiV"/>
     </inferredMetricsTieBreakers>
 </document>
