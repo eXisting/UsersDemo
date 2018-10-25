@@ -69,6 +69,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6K-bs-kXc" userLabel="Next">
                                             <rect key="frame" x="366" y="21" width="28" height="28"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="P0G-S6-kMb"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="Q8q-B2-p18"/>
                                             </constraints>
                                             <state key="normal" image="icon_next"/>
@@ -81,14 +82,14 @@
                                     <constraints>
                                         <constraint firstItem="KZ8-c5-H7S" firstAttribute="bottom" secondItem="C9x-nC-tQu" secondAttribute="bottomMargin" id="04h-nI-hrc"/>
                                         <constraint firstItem="FzA-Ed-CcS" firstAttribute="top" secondItem="C9x-nC-tQu" secondAttribute="topMargin" id="42X-D1-0Ey"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Y6K-bs-kXc" secondAttribute="bottom" constant="10" id="5ht-0o-AhS"/>
                                         <constraint firstItem="L43-ol-dn8" firstAttribute="leading" secondItem="FzA-Ed-CcS" secondAttribute="trailing" constant="15" id="9zG-Fa-BFv"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="KZ8-c5-H7S" secondAttribute="trailing" id="Ck4-WU-Q5X"/>
                                         <constraint firstItem="KZ8-c5-H7S" firstAttribute="leading" secondItem="L43-ol-dn8" secondAttribute="leading" id="D6K-Iv-AAa"/>
                                         <constraint firstItem="FzA-Ed-CcS" firstAttribute="leading" secondItem="C9x-nC-tQu" secondAttribute="leadingMargin" id="PP4-Hl-wIA"/>
-                                        <constraint firstItem="Y6K-bs-kXc" firstAttribute="top" secondItem="C9x-nC-tQu" secondAttribute="topMargin" constant="10" id="c4x-3w-OnO"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Y6K-bs-kXc" secondAttribute="trailing" id="cb6-4h-a99"/>
                                         <constraint firstItem="L43-ol-dn8" firstAttribute="top" secondItem="C9x-nC-tQu" secondAttribute="topMargin" id="d2F-gt-vLs"/>
+                                        <constraint firstItem="KZ8-c5-H7S" firstAttribute="top" relation="greaterThanOrEqual" secondItem="L43-ol-dn8" secondAttribute="bottom" constant="5" id="he1-8s-u5S"/>
+                                        <constraint firstItem="Y6K-bs-kXc" firstAttribute="centerY" secondItem="C9x-nC-tQu" secondAttribute="centerY" id="jRh-HI-T66"/>
                                         <constraint firstItem="FzA-Ed-CcS" firstAttribute="bottom" secondItem="C9x-nC-tQu" secondAttribute="bottomMargin" id="lbV-BB-qlJ"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="L43-ol-dn8" secondAttribute="trailing" id="tKY-p4-3aQ"/>
                                     </constraints>
@@ -153,8 +154,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zF-9e-A8M" userLabel="Next">
-                                            <rect key="frame" x="366" y="21" width="28" height="22"/>
+                                            <rect key="frame" x="366" y="21" width="28" height="28"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="7fO-0i-C7C"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="N2h-z2-nuw"/>
                                             </constraints>
                                             <state key="normal" image="icon_next"/>
@@ -168,10 +170,11 @@
                                         <constraint firstItem="p4s-b6-i9E" firstAttribute="top" secondItem="XRZ-js-I1y" secondAttribute="topMargin" id="5uf-Xy-KY5"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wE8-bL-XH2" secondAttribute="trailing" id="8QR-pO-N6W"/>
                                         <constraint firstItem="p4s-b6-i9E" firstAttribute="leading" secondItem="XRZ-js-I1y" secondAttribute="leadingMargin" id="BNP-bb-NX3"/>
-                                        <constraint firstItem="0zF-9e-A8M" firstAttribute="top" secondItem="XRZ-js-I1y" secondAttribute="topMargin" constant="10" id="Z6v-5f-jmo"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="0zF-9e-A8M" secondAttribute="trailing" id="dGH-w3-kRy"/>
                                         <constraint firstItem="XTN-LQ-NHu" firstAttribute="top" secondItem="XRZ-js-I1y" secondAttribute="topMargin" id="eD3-Xe-c9P"/>
+                                        <constraint firstItem="wE8-bL-XH2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XTN-LQ-NHu" secondAttribute="bottom" constant="5" id="kLU-6Y-7y7"/>
                                         <constraint firstItem="p4s-b6-i9E" firstAttribute="bottom" secondItem="XRZ-js-I1y" secondAttribute="bottomMargin" id="kfB-Dv-c6L"/>
+                                        <constraint firstItem="0zF-9e-A8M" firstAttribute="centerY" secondItem="XRZ-js-I1y" secondAttribute="centerY" id="nqV-yH-Zbh"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="XTN-LQ-NHu" secondAttribute="trailing" id="oDT-Ts-uEq"/>
                                         <constraint firstItem="wE8-bL-XH2" firstAttribute="bottom" secondItem="XRZ-js-I1y" secondAttribute="bottomMargin" id="snf-vQ-9eC"/>
                                         <constraint firstItem="wE8-bL-XH2" firstAttribute="leading" secondItem="XTN-LQ-NHu" secondAttribute="leading" id="tN1-Lq-xaQ"/>
@@ -248,6 +251,6 @@
         <image name="tab_users" width="34" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kn1-aP-iUH"/>
+        <segue reference="sbt-a5-B6D"/>
     </inferredMetricsTieBreakers>
 </document>
