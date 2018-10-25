@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum UserValidationError : Error {
+enum UserValidationError: Error {
     case NameError
     case SurnameError
     case PhoneError
@@ -16,38 +16,37 @@ enum UserValidationError : Error {
     case ImageUrlError
 }
 
+enum UserFields: String {
+    case Name = "name"
+    case FirstName = "first"
+    case LastName = "last"
+    case Email = "email"
+    case Phone = "phone"
+    case Picture = "picture"
+}
+
 class User {
     
-    var name: String
-    var surname: String
-    var email: String
-    var phone: String
-    var imageURL: String?
+    var name: String?
+    var surname: String?
+    var email: String?
+    var phone: String?
+    var images: [String]?
     
-    required init(Name: String?, Surname: String?, Email: String?, Phone: String?, ImageURL: String?) throws {
+    required init(json: [String: Any]) {
         
-        guard let p_Name = Name else {
-            throw UserValidationError.NameError
+        guard let nameJson = json[UserFields.Name.rawValue] as? [String: Any] else {
+            print("Error during serialization of User instance")
+            return
         }
         
-        guard let p_Surname = Surname else {
-            throw UserValidationError.SurnameError
-        }
+        self.name = nameJson[UserFields.FirstName.rawValue] as? String
+        self.surname = nameJson[UserFields.LastName.rawValue] as? String
         
-        guard let p_Email = Email else {
-            throw UserValidationError.EmailError
-        }
+        self.phone = json[UserFields.Phone.rawValue] as? String
+        self.email = json[UserFields.Email.rawValue] as? String
         
-        guard let p_Phone = Email else {
-            throw UserValidationError.PhoneError
-        }
-        
-        self.imageURL = ImageURL
-        self.name = p_Name
-        self.surname = p_Surname
-        self.phone = p_Phone
-        self.email = p_Email
-        
+        // TODO images
     }
     
     

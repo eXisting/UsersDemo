@@ -20,6 +20,7 @@
 		A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B792180E15000170C0B /* ProfileViewController.swift */; };
 		A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B7F2180F09B00170C0B /* RequestHandler.swift */; };
 		A1343B832180FEC300170C0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B822180FEC300170C0B /* User.swift */; };
+		A13B129321822BE4000D2E71 /* UsersWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B129221822BE4000D2E71 /* UsersWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A1343B792180E15000170C0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A1343B7F2180F09B00170C0B /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		A1343B822180FEC300170C0B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A13B129221822BE4000D2E71 /* UsersWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +146,18 @@
 		A1343B812180FEC300170C0B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A13B129121822B62000D2E71 /* Core */,
 				A1343B822180FEC300170C0B /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A13B129121822B62000D2E71 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A13B129221822BE4000D2E71 /* UsersWrapper.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		C519060D0CB18C382ABE769B /* Frameworks */ = {
@@ -294,6 +305,7 @@
 				A1343B832180FEC300170C0B /* User.swift in Sources */,
 				A1343B71217F9EAA00170C0B /* GeneralUsersViewController.swift in Sources */,
 				A119849E217E2B4500249D6B /* AppDelegate.swift in Sources */,
+				A13B129321822BE4000D2E71 /* UsersWrapper.swift in Sources */,
 				A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

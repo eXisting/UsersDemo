@@ -10,6 +10,12 @@ import UIKit
 
 class GeneralUsersViewController: UITableViewController {
     
+    // MARK: Fields
+    
+    private var usersWrapper: UsersWrapper?
+    private var users: [User]?
+    private var isLoadingUsers = false
+    
     // MARK: Outlets
         
     // MARK: Overrides
@@ -18,20 +24,51 @@ class GeneralUsersViewController: UITableViewController {
         super.viewDidLoad()
         
         customizeTableView()
-        populateUsers()
+        loadUsers()
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        return cell
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        
+        if self.users == nil {
+            return 0
+        }
+        
+        return self.users!.count
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell : UserCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserCell
+        
+        if self.users != nil && self.users!.count >= indexPath.row {
+            let user = self.users![indexPath.row]
+            cell.fullName?.text = user.name! + " " + user.surname!
+            cell.phone?.text = user.phone!
+            
+            let rowsToLoadFromBottom = 5;
+            let rowsLoaded = self.users!.count
+            if (!self.isLoadingUsers && (indexPath.row >= (rowsLoaded - rowsToLoadFromBottom))) {
+                let totalRows = self.usersWrapper!.count!
+                let remainingToLoad = totalRows - rowsLoaded;
+                if (remainingToLoad > 0) {
+                    self.loadMore()
+                }
+            }
+        }
+        
+        return cell
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.row == self.users!.count - 1 {
+            self.loadMore()
+        }
     }
     
     // MARK: Functions
@@ -40,12 +77,68 @@ class GeneralUsersViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor.white
     }
     
-    private func populateUsers() {
-        // TODO: Call API and fill table view
+    private func loadUsers() {
         
-        let users : [User] = RequestHandler.getUsers()
+        isLoadingUsers = true
+        RequestHandler.loadUsers() { result in
+            
+            if let error = result.error {
+                self.isLoadingUsers = false
+                
+                let alert = UIAlertController(title: "Error", message: "Could not load first users :( \(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            let usersWrapper = result.value
+            self.addUsersFromWrapper(usersWrapper)
+            
+            self.reloadTableView()
+        }
         
-        print(users)
+    }
+    
+    private func loadMore() {
+        
+        self.isLoadingUsers = true
+        
+        if  let users = self.users, let wrapper = self.usersWrapper, let totalUsersCount = wrapper.count, users.count < totalUsersCount {
+            
+            RequestHandler.loadMore(usersWrapper) { result in
+                
+                if let error = result.error {
+                    self.isLoadingUsers = false
+                    let alert = UIAlertController(title: "Error", message: "Could not load more users :( \(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+                let moreWrapper = result.value
+                self.addUsersFromWrapper(moreWrapper)
+                
+                self.reloadTableView()
+            }
+            
+        }
+        
+    }
+    
+    private func addUsersFromWrapper(_ wrapper: UsersWrapper?) {
+        
+        self.usersWrapper = wrapper
+        
+        if self.users == nil {
+            self.users = self.usersWrapper?.users
+        } else if self.usersWrapper != nil && self.usersWrapper!.users != nil {
+            self.users = self.users! + self.usersWrapper!.users!
+        }
+        
+    }
+    
+    private func reloadTableView() {
+        self.isLoadingUsers = false
+        self.tableView?.reloadData()
     }
     
 }
