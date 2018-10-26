@@ -50,13 +50,8 @@ class GeneralUsersViewController: UITableViewController {
             
             cell.fullName.text = user.name! + " " + user.surname!
             cell.phone.text = user.phone!
+            cell.photo.image = user.image
             
-//            // TODO: refactor this
-//            for value in user.images!.values {
-//                cell.photo.image = value
-//                break;
-//            }
-//
             let rowsToLoadFromBottom = 5;
             let rowsLoaded = self.users!.count
             if (!self.isLoadingUsers && (indexPath.row >= (rowsLoaded - rowsToLoadFromBottom))) {
@@ -77,7 +72,7 @@ class GeneralUsersViewController: UITableViewController {
         if let navigation  = segue.destination as? UINavigationController {
             if let p_Controller = navigation.topViewController as? ProfileViewController {
                 p_Controller.userInfo = user
-            }            
+            }
         }
     }
     

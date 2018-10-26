@@ -32,6 +32,8 @@ class User {
     var email: String?
     var phone: String?
     var image: UIImage?
+
+    var profileImage: UIImage?
     
     var imageWrapper: UserImageWrapper?
     

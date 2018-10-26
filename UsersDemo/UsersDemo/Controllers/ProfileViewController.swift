@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController {
     }
     
     // MARK: Functions
-        
+    
     @IBAction func onBackClick(_ sender: Any) {
         //TODO
     }
@@ -43,6 +43,7 @@ class ProfileViewController: UIViewController {
         surnameField?.text = userInfo.surname ?? ""
         emailField?.text = userInfo.email ?? ""
         phoneField?.text = userInfo.phone ?? ""
+        profileImage.image = userInfo.profileImage!
     }
 }
 

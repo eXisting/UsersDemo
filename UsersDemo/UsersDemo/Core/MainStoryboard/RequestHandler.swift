@@ -84,20 +84,37 @@ class RequestHandler {
         if let results = json["results"] as? [[String: Any]] {
             for responseUser in results {
                 let usr = User(json: responseUser)
+                let wrapper = usr.imageWrapper!
                 
-                // Doesn't work
-//                usr.imageWrapper!.startLoadImages { imgRes in
-//                    if imgRes.error == nil {
-//                        guard let img = imgRes.value else {
-//                            print("Cannot fetch images!")
-//                            return
-//                        }
-//
-//                        usr.image = img
-//                    } else {
-//                         print("Something wrong!")
-//                    }
-//                }
+                // Move to wrapper
+                RequestHandler.loadImageAsyncBy(url: wrapper.getUrlForPreview()) { result in
+                    if result.error == nil {
+                       guard let img = result.value else {
+                            print("Cannot fetch image!")
+                            return
+                       }
+                       usr.image = img
+                    } else {
+                        print("Error during callback in loadImageAsync")
+                    }
+                }
+                
+                let i_URL = wrapper.big ?? wrapper.medium ?? nil
+                
+                // TODO: Refactor code duplication
+                if i_URL != nil {
+                    RequestHandler.loadImageAsyncBy(url: i_URL!) { result in
+                        if result.error == nil {
+                            guard let img = result.value else {
+                                print("Cannot fetch image!")
+                                return
+                            }
+                            usr.profileImage = img
+                        } else {
+                            print("Error during callback in loadImageAsync")
+                        }
+                    }
+                }
                 
                 data.append(usr)
             }
