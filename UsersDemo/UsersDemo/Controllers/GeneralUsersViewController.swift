@@ -15,8 +15,6 @@ class GeneralUsersViewController: UITableViewController {
     private var usersWrapper: UsersWrapper?
     private var users: [User]?
     private var isLoadingUsers = false
-    
-    // MARK: Outlets
         
     // MARK: Overrides
     
@@ -87,7 +85,6 @@ class GeneralUsersViewController: UITableViewController {
     private func customizeTableView() {
         self.tableView.backgroundColor = UIColor.white
     }
-    
     
     private func loadUsers() {
         
