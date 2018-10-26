@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var profileImage: UIImageView!
+    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var surnameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -29,6 +30,79 @@ class ProfileViewController: UIViewController {
     }
     
     // MARK: Functions
+    
+    @IBAction func onNameEditFinished(_ sender: Any) {
+        guard let textField = sender as? UITextField else {
+            print("Unexpected sender!")
+            return
+        }
+        
+        guard let text = textField.text else {
+            print("Unexpected text!")
+            textField.text = userInfo.name
+            return
+        }
+        
+        if !InputValidator.validateLenght(input: text) || !InputValidator.validateWhitespaces(input: text) {
+            print("Wrong input!")
+            textField.text = userInfo.name
+            return
+        }
+        
+        customizeTextFieldColorTo(field: textField, color:UIColor.black)
+    }
+    
+    @IBAction func onSurnameEditFinished(_ sender: Any) {
+        guard let textField = sender as? UITextField else {
+            print("Unexpected sender!")
+            return
+        }
+        
+        guard let text = textField.text else {
+            print("Unexpected text!")
+            textField.text = userInfo.surname
+            return
+        }
+        
+        if !InputValidator.validateLenght(input: text) || !InputValidator.validateWhitespaces(input: text) {
+            print("Wrong input!")
+            textField.text = userInfo.surname
+            return
+        }
+        
+        customizeTextFieldColorTo(field: textField, color:UIColor.black)
+    }
+    
+    
+    @IBAction func onEmailEditFinished(_ sender: Any) {
+        guard let textField = sender as? UITextField else {
+            print("Unexpected sender!")
+            return
+        }
+        
+        guard let text = textField.text else {
+            print("Unexpected text!")
+            textField.text = userInfo.email
+            return
+        }
+        
+        if !InputValidator.validateEmail(input: text) {
+            print("Wrong input!")
+            textField.text = userInfo.email
+            return
+        }
+        
+        customizeTextFieldColorTo(field: textField, color:UIColor.black)
+    }
+    
+    @IBAction func onPhoneEditFinished(_ sender: Any) {
+        guard let textField = sender as? UITextField else {
+            print("Unexpected sender!")
+            return
+        }
+        
+        customizeTextFieldColorTo(field: textField, color:UIColor.black)
+    }
     
     @IBAction func onBackClick(_ sender: Any) {
         //TODO
@@ -46,6 +120,10 @@ class ProfileViewController: UIViewController {
         profileImage.image = userInfo.profileImage!
         
         profileImage.roundImageBy(divider: 2.0)
+    }
+    
+    private func customizeTextFieldColorTo(field: UITextField, color: UIColor) {
+        field.textColor = color
     }
 }
 
