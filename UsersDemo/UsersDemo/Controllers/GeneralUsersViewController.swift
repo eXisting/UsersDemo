@@ -50,8 +50,10 @@ class GeneralUsersViewController: UITableViewController {
             
             cell.fullName.text = user.name! + " " + user.surname!
             cell.phone.text = user.phone!
-            cell.photo.image = user.image
             
+            cell.photo.roundImageBy(divider: 2.0)
+            cell.photo.image = user.image
+
             let rowsToLoadFromBottom = 5;
             let rowsLoaded = self.users!.count
             if (!self.isLoadingUsers && (indexPath.row >= (rowsLoaded - rowsToLoadFromBottom))) {

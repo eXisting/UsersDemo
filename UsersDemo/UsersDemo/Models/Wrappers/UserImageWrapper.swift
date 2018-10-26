@@ -34,4 +34,9 @@ struct UserImageWrapper {
     }
 }
 
-
+extension UIImageView {
+    func roundImageBy(divider: Float) {
+        self.layer.cornerRadius = self.frame.height / CGFloat(divider)
+        self.clipsToBounds = true
+    }
+}

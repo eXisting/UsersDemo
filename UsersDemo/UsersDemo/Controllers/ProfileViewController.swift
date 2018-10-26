@@ -44,6 +44,8 @@ class ProfileViewController: UIViewController {
         emailField?.text = userInfo.email ?? ""
         phoneField?.text = userInfo.phone ?? ""
         profileImage.image = userInfo.profileImage!
+        
+        profileImage.roundImageBy(divider: 2.0)
     }
 }
 
