@@ -35,6 +35,8 @@ class User {
     
     var imageWrapper: UserImageWrapper?
     
+    init() {}
+    
     required init(json: [String: Any]) {
         
         guard let nameJson = json[UserFields.Name.rawValue] as? [String:Any] else {

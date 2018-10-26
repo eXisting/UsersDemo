@@ -73,9 +73,6 @@
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="Q8q-B2-p18"/>
                                             </constraints>
                                             <state key="normal" image="icon_next"/>
-                                            <connections>
-                                                <action selector="onDetailedClick:" destination="uYT-IA-JIy" eventType="touchUpInside" id="AAl-z3-2tz"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -97,7 +94,6 @@
                                     <outlet property="fullName" destination="L43-ol-dn8" id="FJy-wM-5LQ"/>
                                     <outlet property="phone" destination="KZ8-c5-H7S" id="eto-r5-93x"/>
                                     <outlet property="photo" destination="FzA-Ed-CcS" id="Fiw-mW-Ick"/>
-                                    <segue destination="4Nl-Ij-DM7" kind="showDetail" id="eGF-R3-zou"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -108,10 +104,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Saved" id="7mw-j6-Xqg" userLabel="Saved"/>
+                    <connections>
+                        <segue destination="3Dr-Wq-8Ap" kind="presentation" identifier="showDetail" id="78k-x0-T0B"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWN-a7-65P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1586.9565217391305" y="-326.08695652173918"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="XuA-22-xEu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="3Dr-Wq-8Ap" userLabel="Profile" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Bb-FK-9j6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2499" y="-20"/>
         </scene>
         <!--Users-->
         <scene sceneID="2L0-3P-3ni">
@@ -160,9 +167,6 @@
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="N2h-z2-nuw"/>
                                             </constraints>
                                             <state key="normal" image="icon_next"/>
-                                            <connections>
-                                                <action selector="onDetailedClick:" destination="S03-Lj-r07" eventType="touchUpInside" id="IlZ-jE-GzZ"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -184,7 +188,6 @@
                                     <outlet property="fullName" destination="XTN-LQ-NHu" id="Dhs-bZ-X0W"/>
                                     <outlet property="phone" destination="wE8-bL-XH2" id="9t2-8F-oID"/>
                                     <outlet property="photo" destination="p4s-b6-i9E" id="YtG-zi-qw9"/>
-                                    <segue destination="4Nl-Ij-DM7" kind="showDetail" id="RH9-h5-IiV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -195,6 +198,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="mHa-Nq-YhR"/>
+                    <connections>
+                        <segue destination="3Dr-Wq-8Ap" kind="presentation" identifier="showDetail" id="IqT-sX-1hS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D41-ql-3hG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,14 +223,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3Y-Bs-i3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="748" y="383"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="MdH-wb-2Rh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="4Nl-Ij-DM7" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TaG-Bd-Zwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2362" y="-16"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -251,6 +249,6 @@
         <image name="tab_users" width="34" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RH9-h5-IiV"/>
+        <segue reference="IqT-sX-1hS"/>
     </inferredMetricsTieBreakers>
 </document>

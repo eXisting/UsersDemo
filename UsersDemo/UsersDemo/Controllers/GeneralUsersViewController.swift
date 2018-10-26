@@ -47,6 +47,7 @@ class GeneralUsersViewController: UITableViewController {
         
         if self.users != nil && self.users!.count >= indexPath.row {
             let user = self.users![indexPath.row]
+            
             cell.fullName.text = user.name! + " " + user.surname!
             cell.phone.text = user.phone!
             
@@ -71,10 +72,17 @@ class GeneralUsersViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == self.users!.count - 1 {
-            self.loadMore()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let user = sender as? User
+        if let navigation  = segue.destination as? UINavigationController {
+            if let p_Controller = navigation.topViewController as? ProfileViewController {
+                p_Controller.userInfo = user
+            }            
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+        performSegue(withIdentifier: "showDetail", sender: self.users![indexPath.row])
     }
     
     // MARK: Functions
@@ -82,6 +90,7 @@ class GeneralUsersViewController: UITableViewController {
     private func customizeTableView() {
         self.tableView.backgroundColor = UIColor.white
     }
+    
     
     private func loadUsers() {
         

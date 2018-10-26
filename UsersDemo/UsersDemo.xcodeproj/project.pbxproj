@@ -113,7 +113,6 @@
 		A1343B69217F8FDA00170C0B /* MainStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				A1343B76217FB12500170C0B /* Protocols */,
 				A1343B6B217F901C00170C0B /* UserCell.swift */,
 				A1343B74217FA2E200170C0B /* UsersTableView.swift */,
 				A1343B7F2180F09B00170C0B /* RequestHandler.swift */,
@@ -138,29 +137,22 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		A1343B76217FB12500170C0B /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		A1343B812180FEC300170C0B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A13B129121822B62000D2E71 /* Core */,
+				A13B129121822B62000D2E71 /* Wrappers */,
 				A1343B822180FEC300170C0B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A13B129121822B62000D2E71 /* Core */ = {
+		A13B129121822B62000D2E71 /* Wrappers */ = {
 			isa = PBXGroup;
 			children = (
 				A13B129221822BE4000D2E71 /* UsersWrapper.swift */,
 				A187B26221825EB7009532A9 /* UserImageWrapper.swift */,
 			);
-			path = Core;
+			path = Wrappers;
 			sourceTree = "<group>";
 		};
 		C519060D0CB18C382ABE769B /* Frameworks */ = {

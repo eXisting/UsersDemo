@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    var userInfo: User!
+    
     // MARK: Outlets
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -22,10 +24,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initializeFields()
     }
     
     // MARK: Functions
-    
+        
     @IBAction func onBackClick(_ sender: Any) {
         //TODO
     }
@@ -34,6 +38,11 @@ class ProfileViewController: UIViewController {
         //TODO
     }
     
-    
+    private func initializeFields() {
+        nameField?.text = userInfo.name ?? ""
+        surnameField?.text = userInfo.surname ?? ""
+        emailField?.text = userInfo.email ?? ""
+        phoneField?.text = userInfo.phone ?? ""
+    }
 }
 

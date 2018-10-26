@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 class UserCell : UITableViewCell {
-    
+        
     // MARK: Outlets
     
     @IBOutlet weak var photo: UIImageView!
@@ -28,7 +28,7 @@ class UserCell : UITableViewCell {
      // MARK: Functions
     
     @IBAction func onDetailedClick(_ sender: Any) {
-        
+       
     }
     
 }
