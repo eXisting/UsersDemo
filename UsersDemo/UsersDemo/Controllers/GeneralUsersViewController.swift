@@ -25,22 +25,15 @@ class GeneralUsersViewController: UITableViewController {
         loadUsers()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if self.users == nil {
             return 0
         }
         
-        return self.users!.count
-        
+        return self.users!.count        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell : UserCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserCell
         
         if self.users != nil && self.users!.count >= indexPath.row {
@@ -64,7 +57,6 @@ class GeneralUsersViewController: UITableViewController {
         }
         
         return cell
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,7 +79,6 @@ class GeneralUsersViewController: UITableViewController {
     }
     
     private func loadUsers() {
-        
         isLoadingUsers = true
         RequestHandler.loadUsers() { result in
             if let error = result.error {
@@ -104,11 +95,9 @@ class GeneralUsersViewController: UITableViewController {
             
             self.reloadTableView()
         }
-        
     }
     
     private func loadMore() {
-        
         self.isLoadingUsers = true
         
         if  let users = self.users, let wrapper = self.usersWrapper, let totalUsersCount = wrapper.count, users.count < totalUsersCount {
@@ -126,13 +115,10 @@ class GeneralUsersViewController: UITableViewController {
                 
                 self.reloadTableView()
             }
-            
         }
-        
     }
     
     private func addUsersFromWrapper(_ wrapper: UsersWrapper?) {
-        
         self.usersWrapper = wrapper
         
         if self.users == nil {
@@ -140,7 +126,6 @@ class GeneralUsersViewController: UITableViewController {
         } else if self.usersWrapper != nil && self.usersWrapper!.users != nil {
             self.users = self.users! + self.usersWrapper!.users!
         }
-        
     }
     
     private func reloadTableView() {
