@@ -16,6 +16,15 @@ enum UserValidationError: Error {
     case ImageUrlError
 }
 
+enum SavedUserFields: String {
+    case FirstName = "name"
+    case LastName = "surname"
+    case Email = "email"
+    case Phone = "phone"
+    case FullImage = "fullImage"
+    case Thumbnail = "thumbnail"
+}
+
 enum UserJsonFields: String {
     case Name = "name"
     case FirstName = "first"

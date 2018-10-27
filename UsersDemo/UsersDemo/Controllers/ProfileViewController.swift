@@ -123,15 +123,29 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func onSaveClick(_ sender: Any) {
-        let user = SavedUser.init(context: self.persistenceManager.context)
-        user.name = nameField?.text
-        user.surname = surnameField?.text
-        user.email = emailField?.text
-        user.phone = phoneField?.text
-        
-        setImagesDataFor(userContext: user, profileImage: profileImage?.image, thumb: userInfo.image)
-        
-        persistenceManager.save()
+        // either save or update user
+        if let s_User = userInfo as? SavedUser {
+            s_User.setValue(nameField?.text, forKey: SavedUserFields.FirstName.rawValue)
+            s_User.setValue(surnameField?.text, forKey: SavedUserFields.LastName.rawValue)
+            s_User.setValue(emailField?.text, forKey: SavedUserFields.Email.rawValue)
+            s_User.setValue(phoneField?.text, forKey: SavedUserFields.Phone.rawValue)
+            
+            let i_Tuple = convertImagesToData(profileImage: profileImage?.image, thumb: userInfo.image)
+            
+            s_User.setValue(i_Tuple.full, forKey: SavedUserFields.FullImage.rawValue)
+            s_User.setValue(i_Tuple.thumb, forKey: SavedUserFields.Thumbnail.rawValue)
+            print("Updated user successfuly!")
+        } else {
+            let user = SavedUser.init(context: self.persistenceManager.context)
+            user.name = nameField?.text
+            user.surname = surnameField?.text
+            user.email = emailField?.text
+            user.phone = phoneField?.text
+            
+            setImagesDataFor(userContext: user, profileImage: profileImage?.image, thumb: userInfo.image)
+            
+            persistenceManager.save()
+        }
     }
     
     private func initializeFields() {
@@ -154,20 +168,32 @@ class ProfileViewController: UIViewController {
         //let date : Double = NSDate().timeIntervalSince1970
         
         // create NSData from UIImage
+        let dataTuple = convertImagesToData(profileImage: profileImage, thumb: thumb)
+        
+        userContext.fullImage = dataTuple.full
+        userContext.thumbnail = dataTuple.thumb
+    }
+    
+    private func convertImagesToData(profileImage:UIImage?, thumb: UIImage?) -> (full: NSData?, thumb: NSData?) {
+        var result : (full: NSData?, thumb: NSData?)
+        
+        // create NSData from UIImage
         guard let imageData = profileImage?.jpegData(compressionQuality: 1) else {
             // handle failed conversion
-            print("jpg error")
-            return
+            return result
         }
+        
+        result.full = imageData as NSData
         
         guard let thumbnailData  = thumb?.jpegData(compressionQuality: 1) else {
             // handle failed conversion
             print("jpg error")
-            return
+            return result
         }
         
-        userContext.fullImage = imageData as NSData
-        userContext.thumbnail = thumbnailData as NSData
+        result.thumb = thumbnailData as NSData
+        
+        return result
     }
 }
 
