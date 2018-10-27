@@ -53,7 +53,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                         <connections>
-                                            <action selector="onNameEditFinished:" destination="yLD-pO-d5L" eventType="editingDidEnd" id="U5Q-Ep-Fr6"/>
+                                            <action selector="onFirstNameFieldChanged:" destination="yLD-pO-d5L" eventType="editingChanged" id="oYm-M9-x0X"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9W-xj-qqc" userLabel="NameLabel">
@@ -68,7 +68,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
                                         <connections>
-                                            <action selector="onSurnameEditFinished:" destination="yLD-pO-d5L" eventType="editingDidEnd" id="74L-7f-8rx"/>
+                                            <action selector="onLastNameFieldChanged:" destination="yLD-pO-d5L" eventType="editingChanged" id="2ip-wa-SZ6"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6N-HP-zsK" userLabel="SurnameLabel">
@@ -83,7 +83,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                         <connections>
-                                            <action selector="onEmailEditFinished:" destination="yLD-pO-d5L" eventType="editingDidEnd" id="e2v-tk-VJ8"/>
+                                            <action selector="onEmailFieldChanged:" destination="yLD-pO-d5L" eventType="editingChanged" id="POe-D8-Ydt"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mm1-a7-yjI" userLabel="Phone">
@@ -92,7 +92,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                                         <connections>
-                                            <action selector="onPhoneEditFinished:" destination="yLD-pO-d5L" eventType="editingDidEnd" id="vZd-Z8-bav"/>
+                                            <action selector="onPhoneFieldChanged:" destination="yLD-pO-d5L" eventType="editingChanged" id="YZE-gW-UWi"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncv-uL-JG6" userLabel="PhoneLabel">

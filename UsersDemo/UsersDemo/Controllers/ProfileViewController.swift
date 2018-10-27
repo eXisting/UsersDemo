@@ -31,78 +31,74 @@ class ProfileViewController: UIViewController {
     
     // MARK: Functions
     
-    @IBAction func onNameEditFinished(_ sender: Any) {
-        guard let textField = sender as? UITextField else {
-            print("Unexpected sender!")
-            return
-        }
-        
-        guard let text = textField.text else {
+   
+    @IBAction func onFirstNameFieldChanged(_ sender: UITextField) {
+        guard let text = sender.text else {
             print("Unexpected text!")
-            textField.text = userInfo.name
+            nameField.text = userInfo.name
             return
         }
         
         if !InputValidator.validateLenght(input: text) || !InputValidator.validateWhitespaces(input: text) {
             print("Wrong input!")
-            textField.text = userInfo.name
+            nameField.text = userInfo.name
             return
         }
         
-        customizeTextFieldColorTo(field: textField, color:UIColor.black)
+        customizeTextFieldColorTo(field: nameField, color: userInfo.name != text ? UIColor.black : UIColor.lightGray)
     }
     
-    @IBAction func onSurnameEditFinished(_ sender: Any) {
-        guard let textField = sender as? UITextField else {
-            print("Unexpected sender!")
-            return
-        }
-        
-        guard let text = textField.text else {
+    
+    @IBAction func onLastNameFieldChanged(_ sender: UITextField) {
+        guard let text = sender.text else {
             print("Unexpected text!")
-            textField.text = userInfo.surname
+            surnameField.text = userInfo.surname
             return
         }
         
         if !InputValidator.validateLenght(input: text) || !InputValidator.validateWhitespaces(input: text) {
             print("Wrong input!")
-            textField.text = userInfo.surname
+            sender.text = userInfo.surname
             return
         }
         
-        customizeTextFieldColorTo(field: textField, color:UIColor.black)
+        customizeTextFieldColorTo(field: surnameField, color: userInfo.surname != text ?UIColor.black : UIColor.lightGray)
     }
     
     
-    @IBAction func onEmailEditFinished(_ sender: Any) {
-        guard let textField = sender as? UITextField else {
-            print("Unexpected sender!")
-            return
-        }
-        
-        guard let text = textField.text else {
+    @IBAction func onEmailFieldChanged(_ sender: UITextField) {
+        guard let text = sender.text else {
             print("Unexpected text!")
-            textField.text = userInfo.email
+            emailField.text = userInfo.email
             return
         }
         
         if !InputValidator.validateEmail(input: text) {
             print("Wrong input!")
-            textField.text = userInfo.email
+            emailField.text = userInfo.email
             return
         }
         
-        customizeTextFieldColorTo(field: textField, color:UIColor.black)
+        customizeTextFieldColorTo(field: emailField, color: userInfo.email != text ?UIColor.black : UIColor.lightGray)
     }
     
-    @IBAction func onPhoneEditFinished(_ sender: Any) {
-        guard let textField = sender as? UITextField else {
-            print("Unexpected sender!")
+    
+    @IBAction func onPhoneFieldChanged(_ sender: UITextField) {
+        guard let text = sender.text else {
+            print("Unexpected text!")
+            phoneField.text = userInfo.email
             return
         }
         
-        customizeTextFieldColorTo(field: textField, color:UIColor.black)
+        if !InputValidator.validateEmail(input: text) {
+            print("Wrong input!")
+            phoneField.text = userInfo.email
+            return
+        }
+        
+        customizeTextFieldColorTo(field: phoneField, color: userInfo.email != text ?UIColor.black : UIColor.lightGray)
     }
+    
     
     @IBAction func onBackClick(_ sender: Any) {
         //TODO
