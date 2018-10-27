@@ -10,9 +10,25 @@ import UIKit
 
 class SavedUsersViewController: UITableViewController {
     
+    // MARK: FIelds
+    
+    private var persistenceManager: PersistenceManager
+    
+    private var users: [UserProtocol]?
+    
     // MARK: Outlets
     
     // MARK: Overrides
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        persistenceManager = PersistenceManager.instance
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        persistenceManager = PersistenceManager.instance
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +44,10 @@ class SavedUsersViewController: UITableViewController {
     }
     
     private func populateUsers() {
-        // TODO: Call API and fill table view
+        let fetchedUsers = persistenceManager.fetch(SavedUser.self)
+        
+        fetchedUsers.forEach({ user in self.users?.append(user) })
+        // TODO: convert binary data into images
     }
-    
-    
 }
 

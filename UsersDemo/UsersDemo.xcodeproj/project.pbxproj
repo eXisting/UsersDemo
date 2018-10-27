@@ -10,6 +10,9 @@
 		4A8C4AEEBD2A1546EA18A286 /* Pods_UsersDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7342E7F0A15ACCB8E5545232 /* Pods_UsersDemo.framework */; };
 		A1057360218484B700554194 /* RemoteUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105735F218484B700554194 /* RemoteUser.swift */; };
 		A10573622184897200554194 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10573612184897200554194 /* UserProtocol.swift */; };
+		A10573772184916D00554194 /* SavedUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10573752184916D00554194 /* SavedUser+CoreDataClass.swift */; };
+		A10573782184916D00554194 /* SavedUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10573762184916D00554194 /* SavedUser+CoreDataProperties.swift */; };
+		A105737A218499A400554194 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1057379218499A400554194 /* PersistenceManager.swift */; };
 		A119849E217E2B4500249D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119849D217E2B4500249D6B /* AppDelegate.swift */; };
 		A11984A5217E2B4500249D6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11984A3217E2B4500249D6B /* Main.storyboard */; };
 		A11984A7217E2B4700249D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11984A6217E2B4700249D6B /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 		7342E7F0A15ACCB8E5545232 /* Pods_UsersDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsersDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A105735F218484B700554194 /* RemoteUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteUser.swift; sourceTree = "<group>"; };
 		A10573612184897200554194 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
+		A10573752184916D00554194 /* SavedUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A10573762184916D00554194 /* SavedUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A1057379218499A400554194 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		A119849A217E2B4500249D6B /* UsersDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A119849D217E2B4500249D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A11984A4217E2B4500249D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 		A1057363218489D900554194 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A10573752184916D00554194 /* SavedUser+CoreDataClass.swift */,
+				A10573762184916D00554194 /* SavedUser+CoreDataProperties.swift */,
 				A105735F218484B700554194 /* RemoteUser.swift */,
 			);
 			path = Classes;
@@ -128,6 +136,7 @@
 			children = (
 				A1343B6A217F8FF800170C0B /* ProfileStoryboard */,
 				A1343B69217F8FDA00170C0B /* MainStoryboard */,
+				A1057379218499A400554194 /* PersistenceManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -321,13 +330,16 @@
 				A187B26321825EB8009532A9 /* UserImageWrapper.swift in Sources */,
 				A1E77F2E2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld in Sources */,
 				A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */,
+				A105737A218499A400554194 /* PersistenceManager.swift in Sources */,
 				A1343B75217FA2E200170C0B /* UsersTableView.swift in Sources */,
 				A1343B6C217F901C00170C0B /* UserCell.swift in Sources */,
 				A1343B73217F9EF400170C0B /* SavedUsersViewController.swift in Sources */,
 				A1343B71217F9EAA00170C0B /* GeneralUsersViewController.swift in Sources */,
+				A10573782184916D00554194 /* SavedUser+CoreDataProperties.swift in Sources */,
 				A119849E217E2B4500249D6B /* AppDelegate.swift in Sources */,
 				A10573622184897200554194 /* UserProtocol.swift in Sources */,
 				A1057360218484B700554194 /* RemoteUser.swift in Sources */,
+				A10573772184916D00554194 /* SavedUser+CoreDataClass.swift in Sources */,
 				A13B129321822BE4000D2E71 /* UsersWrapper.swift in Sources */,
 				A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */,
 				A1E77F2B2183D0E000426C4D /* InputValidator.swift in Sources */,
