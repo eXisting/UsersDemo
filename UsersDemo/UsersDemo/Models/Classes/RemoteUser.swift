@@ -32,6 +32,8 @@ class RemoteUser : UserProtocol {
         self.name = nameJson[UserJsonFields.FirstName.rawValue] as? String
         self.surname = nameJson[UserJsonFields.LastName.rawValue] as? String
         
+        prettyNames()
+        
         self.phone = json[UserJsonFields.Phone.rawValue] as? String
         self.email = json[UserJsonFields.Email.rawValue] as? String
         
@@ -41,6 +43,11 @@ class RemoteUser : UserProtocol {
         }
         
         self.imageWrapper = UserImageWrapper(json: pictures)
+    }
+    
+    private func prettyNames() {
+        self.name = self.name?.capitalized
+        self.surname = self.surname?.capitalized
     }
 }
 
