@@ -19,8 +19,10 @@ class InputValidator {
     }
     
     static func validateEmail(input: String) -> Bool {
-        // TODO
-        return true
+        let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let tester = NSPredicate(format:"SELF MATCHES %@", regex)
+        return tester.evaluate(with: input)
     }
     
 }
