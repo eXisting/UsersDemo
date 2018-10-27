@@ -114,12 +114,6 @@ class ProfileViewController: UIViewController {
             return
         }
         
-        if !InputValidator.validateEmail(input: text) {
-            ShowAlert(title: "Warning")
-            phoneField.text = userInfo.email
-            return
-        }
-        
         customizeTextFieldColorTo(field: phoneField, color: userInfo.email != text ?UIColor.black : UIColor.lightGray)
     }
     
@@ -135,7 +129,6 @@ class ProfileViewController: UIViewController {
             
             s_User.setValue(i_Tuple.full, forKey: SavedUserFields.FullImage.rawValue)
             s_User.setValue(i_Tuple.thumb, forKey: SavedUserFields.Thumbnail.rawValue)
-            ShowAlert(title: "Success", "Updated successfuly")
         } else {
             let user = SavedUser.init(context: self.persistenceManager.context)
             user.name = nameField?.text
@@ -144,9 +137,9 @@ class ProfileViewController: UIViewController {
             user.phone = phoneField?.text
             
             setImagesDataFor(userContext: user, profileImage: profileImage?.image, thumb: userInfo.image)
-            
-            persistenceManager.save()
         }
+        
+        persistenceManager.save()
     }
     
     private func initializeFields() {
