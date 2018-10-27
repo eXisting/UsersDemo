@@ -24,7 +24,9 @@
 		A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B792180E15000170C0B /* ProfileViewController.swift */; };
 		A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B7F2180F09B00170C0B /* RequestHandler.swift */; };
 		A13B129321822BE4000D2E71 /* UsersWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B129221822BE4000D2E71 /* UsersWrapper.swift */; };
+		A1875FC42185134400714D01 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1875FC32185134400714D01 /* AlertManager.swift */; };
 		A187B26321825EB8009532A9 /* UserImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A187B26221825EB7009532A9 /* UserImageWrapper.swift */; };
+		A1D665022185186C00984F5F /* UserImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D665012185186C00984F5F /* UserImageProtocol.swift */; };
 		A1E77F2B2183D0E000426C4D /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E77F2A2183D0E000426C4D /* InputValidator.swift */; };
 		A1E77F2E2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1E77F2C2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -51,7 +53,9 @@
 		A1343B792180E15000170C0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A1343B7F2180F09B00170C0B /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		A13B129221822BE4000D2E71 /* UsersWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersWrapper.swift; sourceTree = "<group>"; };
+		A1875FC32185134400714D01 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		A187B26221825EB7009532A9 /* UserImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageWrapper.swift; sourceTree = "<group>"; };
+		A1D665012185186C00984F5F /* UserImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageProtocol.swift; sourceTree = "<group>"; };
 		A1E77F2A2183D0E000426C4D /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		A1E77F2D2183DC4900426C4D /* UserCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				A10573612184897200554194 /* UserProtocol.swift */,
+				A1D665012185186C00984F5F /* UserImageProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				A1343B6A217F8FF800170C0B /* ProfileStoryboard */,
 				A1343B69217F8FDA00170C0B /* MainStoryboard */,
 				A1057379218499A400554194 /* PersistenceManager.swift */,
+				A1875FC32185134400714D01 /* AlertManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -332,12 +338,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1875FC42185134400714D01 /* AlertManager.swift in Sources */,
 				A187B26321825EB8009532A9 /* UserImageWrapper.swift in Sources */,
 				A1E77F2E2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld in Sources */,
 				A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */,
 				A105737A218499A400554194 /* PersistenceManager.swift in Sources */,
 				A1343B6C217F901C00170C0B /* UserCell.swift in Sources */,
 				A1343B73217F9EF400170C0B /* SavedUsersViewController.swift in Sources */,
+				A1D665022185186C00984F5F /* UserImageProtocol.swift in Sources */,
 				A1343B71217F9EAA00170C0B /* GeneralUsersViewController.swift in Sources */,
 				A10573782184916D00554194 /* SavedUser+CoreDataProperties.swift in Sources */,
 				A119849E217E2B4500249D6B /* AppDelegate.swift in Sources */,

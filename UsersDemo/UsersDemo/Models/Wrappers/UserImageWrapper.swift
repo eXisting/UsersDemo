@@ -7,13 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-
-enum ImageFields: String {
-    case Thumbnail = "thumbnail"
-    case MediumImage = "medium"
-    case BigImage = "big"
-}
 
 struct UserImageWrapper {
     
@@ -24,19 +17,12 @@ struct UserImageWrapper {
         
     init(json: [String:Any]) {
         
-        self.big = json[ImageFields.BigImage.rawValue] as? String
-        self.medium = json[ImageFields.MediumImage.rawValue] as? String
-        self.thumb = json[ImageFields.Thumbnail.rawValue] as? String
+        self.big = json[ImageType.BigImage.rawValue] as? String
+        self.medium = json[ImageType.MediumImage.rawValue] as? String
+        self.thumb = json[ImageType.Thumbnail.rawValue] as? String
     }
     
     func getUrlForPreview() -> String {
         return self.thumb ?? self.medium ?? self.big ?? ""
-    }
-}
-
-extension UIImageView {
-    func roundImageBy(divider: Float) {
-        self.layer.cornerRadius = self.frame.height / CGFloat(divider)
-        self.clipsToBounds = true
     }
 }

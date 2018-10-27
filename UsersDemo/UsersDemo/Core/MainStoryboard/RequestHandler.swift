@@ -26,12 +26,11 @@ class RequestHandler {
     
     // MARK: API High-level implementation
     
-    class func loadUsers(_ completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
+    static func loadUsers(_ completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
         getUsersAtPath(RequestHandler.buildEndPointUrl(), completionHandler: completionHandler)
     }
     
-    class func loadMore(_ wrapper: UsersWrapper?, completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
-        
+    static func loadMore(_ wrapper: UsersWrapper?, completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
         guard let nextURL = wrapper?.next else {
             let error = RequestError.SerializationError(reason: "Cannot get next url for request")
             completionHandler(.failure(error))
@@ -39,11 +38,9 @@ class RequestHandler {
         }
         
         getUsersAtPath(nextURL, completionHandler: completionHandler)
-        
     }
     
-    class func loadImageAsyncBy(url: String, _ completionHandler: @escaping (Result<UIImage>) -> Void) {
-        
+    static func loadImageAsyncBy(url: String, _ completionHandler: @escaping (Result<UIImage>) -> Void) {
         Alamofire.request(url)
             .response { response in
                 guard let imageData = response.data else {
@@ -60,7 +57,6 @@ class RequestHandler {
                 
                 completionHandler(.success(result))
             }
-        
     }
     
     // MARK: Class implementation
@@ -80,39 +76,21 @@ class RequestHandler {
         let responseInfo = json["info"] as? [String:Any]
         let responseCount = responseInfo!["results"] as? Int
         
-        var data: [RemoteUser] = []
+        var data: [UserProtocol] = []
         if let results = json["results"] as? [[String: Any]] {
             for responseUser in results {
                 let usr = RemoteUser(json: responseUser)
                 let wrapper = usr.imageWrapper!
                 
-                // Move to wrapper
                 RequestHandler.loadImageAsyncBy(url: wrapper.getUrlForPreview()) { result in
-                    if result.error == nil {
-                       guard let img = result.value else {
-                            print("Cannot fetch image!")
-                            return
-                       }
-                       usr.image = img
-                    } else {
-                        print("Error during callback in loadImageAsync")
-                    }
+                    usr.image = getImageFromResponse(result: result)
                 }
                 
-                let i_URL = wrapper.big ?? wrapper.medium ?? nil
+                let thumbUrl = wrapper.big ?? wrapper.medium ?? nil
                 
-                // TODO: Refactor code duplication
-                if i_URL != nil {
-                    RequestHandler.loadImageAsyncBy(url: i_URL!) { result in
-                        if result.error == nil {
-                            guard let img = result.value else {
-                                print("Cannot fetch image!")
-                                return
-                            }
-                            usr.profileImage = img
-                        } else {
-                            print("Error during callback in loadImageAsync")
-                        }
+                if thumbUrl != nil {
+                    RequestHandler.loadImageAsyncBy(url: thumbUrl!) { result in
+                        usr.profileImage = getImageFromResponse(result: result)
                     }
                 }
                 
@@ -120,13 +98,25 @@ class RequestHandler {
             }
         }
         
-        return .success(UsersWrapper(users: data, responseCount, RequestHandler.buildEndPointUrl()))
-        
+        return .success(UsersWrapper(users: data, responseCount, RequestHandler.buildEndPointUrl()))        
     }
     
+    private class func getImageFromResponse(result: Result<UIImage>) -> UIImage? {
+        if result.error == nil {
+            guard let img = result.value else {
+                print("Cannot fetch image!")
+                return nil
+            }
+            
+            return img
+        } else {
+            print("Error during callback in loadImageAsync")
+        }
+        
+        return nil
+    }
     
     private class func getUsersAtPath(_ path: String, completionHandler: @escaping (Result<UsersWrapper>) -> Void) {
-        
         // make sure it's HTTPS
         guard var urlComponents = URLComponents(string: path) else {
             let error = RequestError.EndPointError(reason: "Tried to load an invalid URL")
@@ -152,7 +142,6 @@ class RequestHandler {
                 let usersWrapperResult = RequestHandler.getUsersFromResponse(response)
                 completionHandler(usersWrapperResult)
             }
-        
     }
     
     private class func buildEndPointUrl() -> String {

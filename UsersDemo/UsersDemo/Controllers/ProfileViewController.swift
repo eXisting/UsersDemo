@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    // MARK: Fields
+    
     var userInfo: UserProtocol!
     let persistenceManager: PersistenceManager
     
@@ -62,7 +64,7 @@ class ProfileViewController: UIViewController {
         }
         
         if !InputValidator.validateLenght(input: text) || !InputValidator.validateWhitespaces(input: text) {
-            print("Wrong input!")
+            ShowAlert(title: "Warning")
             nameField.text = userInfo.name
             return
         }
@@ -79,7 +81,7 @@ class ProfileViewController: UIViewController {
         }
         
         if !InputValidator.validateLenght(input: text) || !InputValidator.validateWhitespaces(input: text) {
-            print("Wrong input!")
+            ShowAlert(title: "Warning")
             sender.text = userInfo.surname
             return
         }
@@ -96,7 +98,7 @@ class ProfileViewController: UIViewController {
         }
         
         if !InputValidator.validateEmail(input: text) {
-            print("Wrong input!")
+            ShowAlert(title: "Warning")
             emailField.text = userInfo.email
             return
         }
@@ -113,7 +115,7 @@ class ProfileViewController: UIViewController {
         }
         
         if !InputValidator.validateEmail(input: text) {
-            print("Wrong input!")
+            ShowAlert(title: "Warning")
             phoneField.text = userInfo.email
             return
         }
@@ -133,7 +135,7 @@ class ProfileViewController: UIViewController {
             
             s_User.setValue(i_Tuple.full, forKey: SavedUserFields.FullImage.rawValue)
             s_User.setValue(i_Tuple.thumb, forKey: SavedUserFields.Thumbnail.rawValue)
-            print("Updated user successfuly!")
+            ShowAlert(title: "Success", "Updated successfuly")
         } else {
             let user = SavedUser.init(context: self.persistenceManager.context)
             user.name = nameField?.text
@@ -190,6 +192,16 @@ class ProfileViewController: UIViewController {
         result.thumb = thumbnailData as NSData
         
         return result
+    }
+    
+    private func ShowAlert(title: String, _ message: String = "Validation error!") {
+        let alert = AlertManager.CreateAlert(
+            title: title,
+            message: message,
+            style: UIAlertController.Style.alert
+        )
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

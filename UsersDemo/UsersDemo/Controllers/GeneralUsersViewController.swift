@@ -80,12 +80,16 @@ class GeneralUsersViewController: UITableViewController {
     
     private func loadUsers() {
         isLoadingUsers = true
+        
         RequestHandler.loadUsers() { result in
             if let error = result.error {
                 self.isLoadingUsers = false
                 
-                let alert = UIAlertController(title: "Error", message: "Could not load first users :( \(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+                let alert = AlertManager.CreateAlert(
+                    title: "Error",
+                    message: "Could not load first users :( \(error.localizedDescription)",
+                    style: UIAlertController.Style.alert
+                )
                 
                 self.present(alert, animated: true, completion: nil)
             }
@@ -100,13 +104,17 @@ class GeneralUsersViewController: UITableViewController {
     private func loadMore() {
         self.isLoadingUsers = true
         
-        if  let users = self.users, let wrapper = self.usersWrapper, let totalUsersCount = wrapper.count, users.count < totalUsersCount {
-            
+        if let users = self.users, let wrapper = self.usersWrapper, let totalUsersCount = wrapper.count, users.count < totalUsersCount {
             RequestHandler.loadMore(usersWrapper) { result in
                 if let error = result.error {
                     self.isLoadingUsers = false
-                    let alert = UIAlertController(title: "Error", message: "Could not load more users :( \(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+                    
+                    let alert = AlertManager.CreateAlert(
+                        title: "Error",
+                        message: "Could not load more users :( \(error.localizedDescription)",
+                        style: UIAlertController.Style.alert
+                    )
+                    
                     self.present(alert, animated: true, completion: nil)
                 }
                 

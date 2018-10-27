@@ -49,6 +49,7 @@ class SavedUsersViewController: UITableViewController {
         if self.users != nil && self.users!.count >= indexPath.row {
             let user = self.users![indexPath.row] as! SavedUser
             
+            // Converting NSData into UIImage
             user.profileImage = UIImage.init(data: user.fullImage! as Data)
             user.image = UIImage.init(data: user.thumbnail! as Data)
             
@@ -84,8 +85,6 @@ class SavedUsersViewController: UITableViewController {
     
     private func loadUsers() {
         self.users = persistenceManager.fetch(SavedUser.self)
-        
-        // TODO: convert binary data into images
         
         self.tableView?.reloadData()
     }
