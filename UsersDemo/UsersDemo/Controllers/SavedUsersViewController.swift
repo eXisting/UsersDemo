@@ -47,20 +47,24 @@ class SavedUsersViewController: UITableViewController {
         let cell : UserCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserCell
         
         if self.users != nil && self.users!.count >= indexPath.row {
-            let user = self.users![indexPath.row]
+            let user = self.users![indexPath.row] as! SavedUser
+            
+            user.profileImage = UIImage.init(data: user.fullImage! as Data)
+            user.image = UIImage.init(data: user.thumbnail! as Data)
             
             cell.fullName.text = user.name! + " " + user.surname!
             cell.phone.text = user.phone!
+                        
+            cell.photo.image = user.image
             
             cell.photo.roundImageBy(divider: 2.0)
-            cell.photo.image = user.image
         }
         
         return cell        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let user = sender as? RemoteUser
+        let user = sender as? UserProtocol
         if let navigation  = segue.destination as? UINavigationController {
             if let p_Controller = navigation.topViewController as? ProfileViewController {
                 p_Controller.userInfo = user

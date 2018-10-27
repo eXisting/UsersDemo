@@ -10,7 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    var userInfo: RemoteUser!
+    var userInfo: UserProtocol!
+    let persistenceManager: PersistenceManager
     
     // MARK: Outlets
     
@@ -27,6 +28,28 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         initializeFields()
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.persistenceManager = PersistenceManager.instance
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.persistenceManager = PersistenceManager.instance
+        super.init(coder: aDecoder)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // TODO: show saved page on save button click
+        
+//        if segue.identifier == "showSaved" {
+//            if let navigation  = segue.destination as? UINavigationController {
+//                if let _ = navigation.topViewController as? SavedUsersViewController {
+//                    print("Going to load SavedUsersViewController")
+//                }
+//            }
+//        }
     }
     
     // MARK: Functions
@@ -99,13 +122,16 @@ class ProfileViewController: UIViewController {
         customizeTextFieldColorTo(field: phoneField, color: userInfo.email != text ?UIColor.black : UIColor.lightGray)
     }
     
-    
-    @IBAction func onBackClick(_ sender: Any) {
-        //TODO
-    }
-    
     @IBAction func onSaveClick(_ sender: Any) {
-        //TODO
+        let user = SavedUser.init(context: self.persistenceManager.context)
+        user.name = nameField?.text
+        user.surname = surnameField?.text
+        user.email = emailField?.text
+        user.phone = phoneField?.text
+        
+        setImagesDataFor(userContext: user, profileImage: profileImage?.image, thumb: userInfo.image)
+        
+        persistenceManager.save()
     }
     
     private func initializeFields() {
@@ -113,13 +139,35 @@ class ProfileViewController: UIViewController {
         surnameField?.text = userInfo.surname ?? ""
         emailField?.text = userInfo.email ?? ""
         phoneField?.text = userInfo.phone ?? ""
-        profileImage.image = userInfo.profileImage!
+        profileImage?.image = userInfo.profileImage
         
         profileImage.roundImageBy(divider: 2.0)
     }
     
     private func customizeTextFieldColorTo(field: UITextField, color: UIColor) {
         field.textColor = color
+    }
+    
+    private func setImagesDataFor(userContext: SavedUser, profileImage:UIImage?, thumb: UIImage?) {
+        
+        // use date as unique id
+        //let date : Double = NSDate().timeIntervalSince1970
+        
+        // create NSData from UIImage
+        guard let imageData = profileImage?.jpegData(compressionQuality: 1) else {
+            // handle failed conversion
+            print("jpg error")
+            return
+        }
+        
+        guard let thumbnailData  = thumb?.jpegData(compressionQuality: 1) else {
+            // handle failed conversion
+            print("jpg error")
+            return
+        }
+        
+        userContext.fullImage = imageData as NSData
+        userContext.thumbnail = thumbnailData as NSData
     }
 }
 
