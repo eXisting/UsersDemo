@@ -80,10 +80,10 @@ class RequestHandler {
         let responseInfo = json["info"] as? [String:Any]
         let responseCount = responseInfo!["results"] as? Int
         
-        var data: [User] = []
+        var data: [RemoteUser] = []
         if let results = json["results"] as? [[String: Any]] {
             for responseUser in results {
-                let usr = User(json: responseUser)
+                let usr = RemoteUser(json: responseUser)
                 let wrapper = usr.imageWrapper!
                 
                 // Move to wrapper

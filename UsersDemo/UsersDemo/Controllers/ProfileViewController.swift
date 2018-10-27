@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    var userInfo: User!
+    var userInfo: RemoteUser!
     
     // MARK: Outlets
     

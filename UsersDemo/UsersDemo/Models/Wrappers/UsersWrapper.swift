@@ -7,11 +7,11 @@
 //
 
 struct UsersWrapper {
-    var users: [User]?
+    var users: [UserProtocol]?
     var count: Int?
     var next: String?
     
-    init(users: [User]?, _ count: Int?, _ next: String?) {
+    init(users: [UserProtocol]?, _ count: Int?, _ next: String?) {
         self.count = count
         self.next = next
         self.users = users

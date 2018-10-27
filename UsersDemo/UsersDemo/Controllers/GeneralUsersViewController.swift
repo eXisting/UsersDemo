@@ -13,7 +13,7 @@ class GeneralUsersViewController: UITableViewController {
     // MARK: Fields
     
     private var usersWrapper: UsersWrapper?
-    private var users: [User]?
+    private var users: [UserProtocol]?
     private var isLoadingUsers = false
         
     // MARK: Overrides
@@ -68,7 +68,7 @@ class GeneralUsersViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let user = sender as? User
+        let user = sender as? RemoteUser
         if let navigation  = segue.destination as? UINavigationController {
             if let p_Controller = navigation.topViewController as? ProfileViewController {
                 p_Controller.userInfo = user

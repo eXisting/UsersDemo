@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A8C4AEEBD2A1546EA18A286 /* Pods_UsersDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7342E7F0A15ACCB8E5545232 /* Pods_UsersDemo.framework */; };
+		A1057360218484B700554194 /* RemoteUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105735F218484B700554194 /* RemoteUser.swift */; };
+		A10573622184897200554194 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10573612184897200554194 /* UserProtocol.swift */; };
 		A119849E217E2B4500249D6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119849D217E2B4500249D6B /* AppDelegate.swift */; };
 		A11984A5217E2B4500249D6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11984A3217E2B4500249D6B /* Main.storyboard */; };
 		A11984A7217E2B4700249D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11984A6217E2B4700249D6B /* Assets.xcassets */; };
@@ -19,16 +21,18 @@
 		A1343B75217FA2E200170C0B /* UsersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B74217FA2E200170C0B /* UsersTableView.swift */; };
 		A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B792180E15000170C0B /* ProfileViewController.swift */; };
 		A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B7F2180F09B00170C0B /* RequestHandler.swift */; };
-		A1343B832180FEC300170C0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343B822180FEC300170C0B /* User.swift */; };
 		A13B129321822BE4000D2E71 /* UsersWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B129221822BE4000D2E71 /* UsersWrapper.swift */; };
 		A187B26321825EB8009532A9 /* UserImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A187B26221825EB7009532A9 /* UserImageWrapper.swift */; };
 		A1E77F2B2183D0E000426C4D /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E77F2A2183D0E000426C4D /* InputValidator.swift */; };
+		A1E77F2E2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1E77F2C2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2EC11507F9406CD4BE1464BF /* Pods-UsersDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UsersDemo/Pods-UsersDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4DA4CA0826D7A3F37BFAF978 /* Pods-UsersDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-UsersDemo/Pods-UsersDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7342E7F0A15ACCB8E5545232 /* Pods_UsersDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsersDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A105735F218484B700554194 /* RemoteUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteUser.swift; sourceTree = "<group>"; };
+		A10573612184897200554194 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
 		A119849A217E2B4500249D6B /* UsersDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A119849D217E2B4500249D6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A11984A4217E2B4500249D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,10 +46,10 @@
 		A1343B74217FA2E200170C0B /* UsersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableView.swift; sourceTree = "<group>"; };
 		A1343B792180E15000170C0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A1343B7F2180F09B00170C0B /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
-		A1343B822180FEC300170C0B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A13B129221822BE4000D2E71 /* UsersWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersWrapper.swift; sourceTree = "<group>"; };
 		A187B26221825EB7009532A9 /* UserImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageWrapper.swift; sourceTree = "<group>"; };
 		A1E77F2A2183D0E000426C4D /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
+		A1E77F2D2183DC4900426C4D /* UserCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1057363218489D900554194 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A105735F218484B700554194 /* RemoteUser.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A1057364218489E700554194 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A10573612184897200554194 /* UserProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		A1198491217E2B4500249D6B = {
 			isa = PBXGroup;
 			children = (
@@ -143,8 +163,10 @@
 		A1343B812180FEC300170C0B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A1057364218489E700554194 /* Protocols */,
+				A1057363218489D900554194 /* Classes */,
 				A13B129121822B62000D2E71 /* Wrappers */,
-				A1343B822180FEC300170C0B /* User.swift */,
+				A1E77F2C2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,13 +319,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A187B26321825EB8009532A9 /* UserImageWrapper.swift in Sources */,
+				A1E77F2E2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld in Sources */,
 				A1343B7A2180E15000170C0B /* ProfileViewController.swift in Sources */,
 				A1343B75217FA2E200170C0B /* UsersTableView.swift in Sources */,
 				A1343B6C217F901C00170C0B /* UserCell.swift in Sources */,
 				A1343B73217F9EF400170C0B /* SavedUsersViewController.swift in Sources */,
-				A1343B832180FEC300170C0B /* User.swift in Sources */,
 				A1343B71217F9EAA00170C0B /* GeneralUsersViewController.swift in Sources */,
 				A119849E217E2B4500249D6B /* AppDelegate.swift in Sources */,
+				A10573622184897200554194 /* UserProtocol.swift in Sources */,
+				A1057360218484B700554194 /* RemoteUser.swift in Sources */,
 				A13B129321822BE4000D2E71 /* UsersWrapper.swift in Sources */,
 				A1343B802180F09B00170C0B /* RequestHandler.swift in Sources */,
 				A1E77F2B2183D0E000426C4D /* InputValidator.swift in Sources */,
@@ -508,6 +532,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A1E77F2C2183DC4900426C4D /* UserCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A1E77F2D2183DC4900426C4D /* UserCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = A1E77F2D2183DC4900426C4D /* UserCoreDataModel.xcdatamodel */;
+			path = UserCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A1198492217E2B4500249D6B /* Project object */;
 }
