@@ -15,8 +15,7 @@ struct UserImageWrapper {
     let medium: String?
     let thumb: String?
         
-    init(json: [String:Any]) {
-        
+    init(json: [String:Any]) {        
         self.big = json[ImageType.BigImage.rawValue] as? String
         self.medium = json[ImageType.MediumImage.rawValue] as? String
         self.thumb = json[ImageType.Thumbnail.rawValue] as? String

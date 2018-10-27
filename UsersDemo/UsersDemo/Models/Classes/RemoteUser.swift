@@ -10,6 +10,8 @@ import UIKit
 
 class RemoteUser : UserProtocol {
     
+    // MARK: Fields
+    
     var name: String?
     var surname: String?
     var email: String?
@@ -20,7 +22,7 @@ class RemoteUser : UserProtocol {
     
     var imageWrapper: UserImageWrapper?
     
-    init() {}
+    // MARK: Overrides
     
     required init(json: [String: Any]) {
         
@@ -44,6 +46,10 @@ class RemoteUser : UserProtocol {
         
         self.imageWrapper = UserImageWrapper(json: pictures)
     }
+    
+    // MARK: Functions
+    
+    init() {}
     
     private func prettyNames() {
         self.name = self.name?.capitalized

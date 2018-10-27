@@ -7,6 +7,7 @@
 //
 
 struct UsersWrapper {
+    
     var users: [UserProtocol]?
     var count: Int?
     var next: String?

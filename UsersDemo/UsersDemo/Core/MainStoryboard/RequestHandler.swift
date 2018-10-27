@@ -86,7 +86,7 @@ class RequestHandler {
                     usr.image = getImageFromResponse(result: result)
                 }
                 
-                let thumbUrl = wrapper.big ?? wrapper.medium ?? nil
+                let thumbUrl = wrapper.thumb ?? wrapper.medium ??  wrapper.big ?? nil
                 
                 if thumbUrl != nil {
                     RequestHandler.loadImageAsyncBy(url: thumbUrl!) { result in
