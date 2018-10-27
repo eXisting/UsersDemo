@@ -41,20 +41,19 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // TODO: show saved page on save button click
+        var tabIndex = 0
+        if segue.identifier == "showSaved" {
+            tabIndex = 1
+            onSaveClick()
+        }
         
-//        if segue.identifier == "showSaved" {
-//            if let navigation  = segue.destination as? UINavigationController {
-//                if let _ = navigation.topViewController as? SavedUsersViewController {
-//                    print("Going to load SavedUsersViewController")
-//                }
-//            }
-//        }
+        if let tabController  = segue.destination as? UITabBarController {
+            tabController.selectedIndex = tabIndex
+        }
     }
     
     // MARK: Functions
-    
-   
+        
     @IBAction func onFirstNameFieldChanged(_ sender: UITextField) {
         guard let text = sender.text else {
             print("Unexpected text!")
@@ -122,7 +121,7 @@ class ProfileViewController: UIViewController {
         customizeTextFieldColorTo(field: phoneField, color: userInfo.email != text ?UIColor.black : UIColor.lightGray)
     }
     
-    @IBAction func onSaveClick(_ sender: Any) {
+    private func onSaveClick() {
         // either save or update user
         if let s_User = userInfo as? SavedUser {
             s_User.setValue(nameField?.text, forKey: SavedUserFields.FirstName.rawValue)
@@ -164,9 +163,6 @@ class ProfileViewController: UIViewController {
     
     private func setImagesDataFor(userContext: SavedUser, profileImage:UIImage?, thumb: UIImage?) {
         
-        // use date as unique id
-        //let date : Double = NSDate().timeIntervalSince1970
-        
         // create NSData from UIImage
         let dataTuple = convertImagesToData(profileImage: profileImage, thumb: thumb)
         
@@ -177,9 +173,9 @@ class ProfileViewController: UIViewController {
     private func convertImagesToData(profileImage:UIImage?, thumb: UIImage?) -> (full: NSData?, thumb: NSData?) {
         var result : (full: NSData?, thumb: NSData?)
         
-        // create NSData from UIImage
         guard let imageData = profileImage?.jpegData(compressionQuality: 1) else {
             // handle failed conversion
+            print("jpg error")
             return result
         }
         

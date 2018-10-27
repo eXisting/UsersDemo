@@ -160,12 +160,12 @@
                     <navigationItem key="navigationItem" title="Edit user profile" id="IA0-oi-anW">
                         <barButtonItem key="leftBarButtonItem" title=" Back" image="icon_back" id="ZkL-CI-V1a">
                             <connections>
-                                <segue destination="VSH-TU-LwK" kind="showDetail" id="EVP-j0-l9e"/>
+                                <segue destination="VSH-TU-LwK" kind="showDetail" identifier="showGeneral" id="FiX-KK-Okl"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="y83-kH-W2H">
                             <connections>
-                                <action selector="onSaveClick:" destination="yLD-pO-d5L" id="AsR-Id-qZN"/>
+                                <segue destination="VSH-TU-LwK" kind="showDetail" identifier="showSaved" id="jzu-BS-BGx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -195,4 +195,7 @@
         <image name="icon_back" width="22.5" height="22.5"/>
         <image name="tab_users_active" width="34" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jzu-BS-BGx"/>
+    </inferredMetricsTieBreakers>
 </document>
