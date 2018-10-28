@@ -64,6 +64,27 @@ class SavedUsersViewController: UITableViewController {
         return cell        
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let user = self.users![indexPath.row] as! SavedUser
+            persistenceManager.context.delete(user)
+            self.tableView.reloadRows(at: [indexPath], with: .fade)
+            print("User has been deleted!")
+            
+            persistenceManager.save()
+            loadUsers()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: self.users![indexPath.row])
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let user = sender as? UserProtocol
         if let navigation  = segue.destination as? UINavigationController {
@@ -71,10 +92,6 @@ class SavedUsersViewController: UITableViewController {
                 p_Controller.userInfo = user
             }
         }
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetail", sender: self.users![indexPath.row])
     }
     
     // MARK: Functions
@@ -86,7 +103,9 @@ class SavedUsersViewController: UITableViewController {
     private func loadUsers() {
         self.users = persistenceManager.fetch(SavedUser.self)
         
-        self.tableView?.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
 }

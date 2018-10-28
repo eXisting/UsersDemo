@@ -93,8 +93,6 @@ class GeneralUsersViewController: UITableViewController {
             
             let usersWrapper = result.value
             self.addUsersFromWrapper(usersWrapper)
-            
-            self.reloadTableView()
         }
     }
     
@@ -116,8 +114,6 @@ class GeneralUsersViewController: UITableViewController {
             
             let moreWrapper = result.value
             self.addUsersFromWrapper(moreWrapper)
-            
-            self.reloadTableView()
         }
     }
     
@@ -129,11 +125,13 @@ class GeneralUsersViewController: UITableViewController {
         } else if self.usersWrapper != nil && self.usersWrapper!.users != nil {
             self.users = self.users! + self.usersWrapper!.users!
         }
+        
+        reloadTableView()
     }
     
     private func reloadTableView() {
         self.isLoadingUsers = false
-        self.tableView?.reloadData()
+        self.tableView.reloadData()
     }
     
 }
