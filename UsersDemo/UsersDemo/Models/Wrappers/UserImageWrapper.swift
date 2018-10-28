@@ -24,4 +24,8 @@ struct UserImageWrapper {
     func getUrlForPreview() -> String {
         return self.thumb ?? self.medium ?? self.big ?? ""
     }
+    
+    func getUrlForProfileImg() -> String {
+        return self.big ?? self.medium ?? self.thumb ?? ""
+    }
 }

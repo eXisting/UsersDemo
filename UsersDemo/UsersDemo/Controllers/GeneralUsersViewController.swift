@@ -14,6 +14,7 @@ class GeneralUsersViewController: UITableViewController {
     
     private var usersWrapper: UsersWrapper?
     private var users: [UserProtocol]?
+    
     private var isLoadingUsers = false
         
     // MARK: Overrides
@@ -45,14 +46,10 @@ class GeneralUsersViewController: UITableViewController {
             cell.photo.roundImageBy(divider: 2.0)
             cell.photo.image = user.image
 
-            let rowsToLoadFromBottom = 5;
-            let rowsLoaded = self.users!.count
-            if (!self.isLoadingUsers && (indexPath.row >= (rowsLoaded - rowsToLoadFromBottom))) {
-                let totalRows = self.usersWrapper!.count!
-                let remainingToLoad = totalRows - rowsLoaded;
-                if (remainingToLoad > 0) {
-                    self.loadMore()
-                }
+            let lastElement = self.users!.count - 1
+            if !isLoadingUsers && indexPath.row == lastElement {
+                isLoadingUsers = true
+                loadMore()
             }
         }
         
@@ -104,25 +101,23 @@ class GeneralUsersViewController: UITableViewController {
     private func loadMore() {
         self.isLoadingUsers = true
         
-        if let users = self.users, let wrapper = self.usersWrapper, let totalUsersCount = wrapper.count, users.count < totalUsersCount {
-            RequestHandler.loadMore(usersWrapper) { result in
-                if let error = result.error {
-                    self.isLoadingUsers = false
-                    
-                    let alert = AlertManager.CreateAlert(
-                        title: "Error",
-                        message: "Could not load more users :( \(error.localizedDescription)",
-                        style: UIAlertController.Style.alert
-                    )
-                    
-                    self.present(alert, animated: true, completion: nil)
-                }
+        RequestHandler.loadMore(usersWrapper) { result in
+            if let error = result.error {
+                self.isLoadingUsers = false
                 
-                let moreWrapper = result.value
-                self.addUsersFromWrapper(moreWrapper)
+                let alert = AlertManager.CreateAlert(
+                    title: "Error",
+                    message: "Could not load more users :( \(error.localizedDescription)",
+                    style: UIAlertController.Style.alert
+                )
                 
-                self.reloadTableView()
+                self.present(alert, animated: true, completion: nil)
             }
+            
+            let moreWrapper = result.value
+            self.addUsersFromWrapper(moreWrapper)
+            
+            self.reloadTableView()
         }
     }
     

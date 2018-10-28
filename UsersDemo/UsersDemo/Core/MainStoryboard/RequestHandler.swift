@@ -86,12 +86,8 @@ class RequestHandler {
                     usr.image = getImageFromResponse(result: result)
                 }
                 
-                let thumbUrl = wrapper.thumb ?? wrapper.medium ??  wrapper.big ?? nil
-                
-                if thumbUrl != nil {
-                    RequestHandler.loadImageAsyncBy(url: thumbUrl!) { result in
-                        usr.profileImage = getImageFromResponse(result: result)
-                    }
+                RequestHandler.loadImageAsyncBy(url: wrapper.getUrlForProfileImg()) { result in
+                    usr.profileImage = getImageFromResponse(result: result)
                 }
                 
                 data.append(usr)
